@@ -1,0 +1,8 @@
+name = "kimiyaa-pilot-form"
+main = "src/index.js"
+compatibility_date = "2026-04-30"
+
+[vars]
+ALLOWED_ORIGIN = "https://landing.kimiyaa.ai"
+# Optional comma-separated list for local testing or extra domains.
+# EXTRA_ALLOWED_ORIGINS = "http://localhost:8787,https://kimiyaa.ai"

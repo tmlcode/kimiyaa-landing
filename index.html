@@ -6,6 +6,8 @@
 <title>The Maya alternative that doesn't ask you to leave Maya behind. — Kimiyaa.ai</title>
 <meta name="description" content="Same Maya workflow, .ma files, hotkeys, and scripts — at ≤30% of Autodesk's price. Year 1 free. Switch in 0–2 days. The honest Maya vs Blender vs Kimiyaa comparison." />
 <link rel="canonical" href="https://landing.kimiyaa.ai/" />
+<!-- Change this after deploying the Cloudflare Worker. Example: https://api.kimiyaa.ai/apply -->
+<meta name="kimiyaa-api-endpoint" content="https://kimiyaa-pilot-form.kimiyaa-pilot-form.workers.dev/apply" />
 
 <meta property="og:title" content="The Maya alternative that doesn't ask you to leave Maya behind." />
 <meta property="og:description" content="Same workflow. ≤30% the cost. Year 1 free. Switch in 0–2 days." />
@@ -885,6 +887,7 @@
           </select>
         </div>
         <input class="form-input" type="email" name="email" required placeholder="Work email" />
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
         <button type="submit" class="btn btn-primary btn-lg btn-block">Apply for the Free Year →</button>
         <p class="form-fineprint">No card. No commitment. We respond within 48 hours from a human, not a queue.</p>
       </form>
@@ -969,30 +972,84 @@
   updateCalc();
 
   // Form handler
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+
     const form = e.target;
     const data = new FormData(form);
-    console.log('Pilot Application:', Object.fromEntries(data));
+    const payload = Object.fromEntries(data.entries());
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    const endpoint = document.querySelector('meta[name="kimiyaa-api-endpoint"]')?.content?.trim();
 
-    // Replace form with success state
-    form.innerHTML = `
-      <div style="text-align:center; padding: 24px 8px;">
-        <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--accent')}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        </div>
-        <h3 style="margin-bottom: 10px;">Application received.</h3>
-        <p style="color: var(--ink-muted); font-size: 14px; line-height: 1.6;">We'll be in touch within 48 hours from a human on the team.</p>
-      </div>
-    `;
-
-    if (typeof gtag === 'function') {
-      gtag('event', 'pilot_application_submitted', {
-        page: 'landing',
-        studio_size: data.get('size'),
-        role: data.get('role'),
-      });
+    if (!endpoint || endpoint.includes('YOUR_WORKER_URL')) {
+      showFormError(form, 'Form endpoint is not configured yet. Add your Cloudflare Worker URL in the kimiyaa-api-endpoint meta tag.');
+      return;
     }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Unable to submit the form right now.');
+      }
+
+      console.log('Pilot Application:', payload);
+
+      form.innerHTML = `
+        <div style="text-align:center; padding: 24px 8px;">
+          <div style="width:56px;height:56px;border-radius:50%;background:var(--accent-soft);border:1px solid var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="${getComputedStyle(document.documentElement).getPropertyValue('--accent')}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <h3 style="margin-bottom: 10px;">Application received.</h3>
+          <p style="color: var(--ink-muted); font-size: 14px; line-height: 1.6;">Thanks. We received your application and our team will be in touch within 48 hours.</p>
+        </div>
+      `;
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'pilot_application_submitted', {
+          page: 'landing',
+          studio_size: payload.size,
+          role: payload.role,
+        });
+      }
+    } catch (error) {
+      console.error('Pilot form failed:', error);
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      showFormError(form, error.message || 'Something went wrong. Please try again.');
+    }
+  }
+
+  function showFormError(form, message) {
+    let errorBox = form.querySelector('.form-error');
+    if (!errorBox) {
+      errorBox = document.createElement('p');
+      errorBox.className = 'form-error';
+      errorBox.style.color = 'var(--warn)';
+      errorBox.style.fontSize = '13px';
+      errorBox.style.textAlign = 'center';
+      errorBox.style.marginTop = '4px';
+      form.appendChild(errorBox);
+    }
+    errorBox.textContent = message;
+  }
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
   }
 </script>
 
