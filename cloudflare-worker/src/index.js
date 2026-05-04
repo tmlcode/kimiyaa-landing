@@ -1,11 +1,50 @@
+const corsBaseHeaders = {
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  Vary: 'Origin',
+};
+
+function getAllowedOrigins(env) {
+  const primary = env.ALLOWED_ORIGIN || 'https://landing.kimiyaa.ai';
+  const extra = (env.EXTRA_ALLOWED_ORIGINS || '')
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+
+  return [primary, ...extra];
+}
+
+function getCorsOrigin(request, env) {
+  const origin = request.headers.get('Origin') || '';
+  const allowedOrigins = getAllowedOrigins(env);
+
+  if (origin && allowedOrigins.includes(origin)) {
+    return origin;
+  }
+
+  return allowedOrigins[0];
+}
+
+function corsHeaders(origin) {
+  return {
+    ...corsBaseHeaders,
+    'Access-Control-Allow-Origin': origin,
+  };
+}
+
+function preflight(origin) {
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders(origin),
+  });
+}
+
 function json(body, status = 200, origin = '*') {
   return new Response(JSON.stringify(body), {
     status,
     headers: {
+      ...corsHeaders(origin),
       'Content-Type': 'application/json; charset=utf-8',
-      'Access-Control-Allow-Origin': origin,
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
     },
   });
 }
@@ -16,16 +55,6 @@ function isValidEmail(email) {
 
 function clean(value, maxLength = 500) {
   return String(value || '').trim().slice(0, maxLength);
-}
-
-function getAllowedOrigins(env) {
-  const primary = env.ALLOWED_ORIGIN || 'https://landing.kimiyaa.ai';
-  const extra = (env.EXTRA_ALLOWED_ORIGINS || '')
-    .split(',')
-    .map((item) => item.trim())
-    .filter(Boolean);
-
-  return [primary, ...extra];
 }
 
 async function sendEmailJs(env, params) {
@@ -56,10 +85,10 @@ export default {
   async fetch(request, env) {
     const origin = request.headers.get('Origin') || '';
     const allowedOrigins = getAllowedOrigins(env);
-    const corsOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
+    const corsOrigin = getCorsOrigin(request, env);
 
     if (request.method === 'OPTIONS') {
-      return json({ ok: true }, 204, corsOrigin);
+      return preflight(corsOrigin);
     }
 
     const url = new URL(request.url);

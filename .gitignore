@@ -1,0 +1,8 @@
+node_modules/
+cloudflare-worker/node_modules/
+cloudflare-worker/.dev.vars
+cloudflare-worker/.wrangler/
+cloudflare-worker/node_modules/.cache/
+.DS_Store
+.env
+.env.*
