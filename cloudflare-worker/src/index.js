@@ -1,17 +1,30 @@
+const EMAILJS_SEND_URL = 'https://api.emailjs.com/api/v1.0/email/send';
+
 const corsBaseHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   Vary: 'Origin',
 };
 
-function getAllowedOrigins(env) {
-  const primary = env.ALLOWED_ORIGIN || 'https://landing.kimiyaa.ai';
-  const extra = (env.EXTRA_ALLOWED_ORIGINS || '')
+function clean(value, maxLength = 500) {
+  return String(value || '').trim().slice(0, maxLength);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
+}
+
+function csvToList(value) {
+  return String(value || '')
     .split(',')
     .map((item) => item.trim())
     .filter(Boolean);
+}
 
-  return [primary, ...extra];
+function getAllowedOrigins(env) {
+  const primary = clean(env.ALLOWED_ORIGIN || 'https://landing.kimiyaa.ai', 300);
+  const extra = csvToList(env.EXTRA_ALLOWED_ORIGINS);
+  return [primary, ...extra].filter(Boolean);
 }
 
 function getCorsOrigin(request, env) {
@@ -22,7 +35,7 @@ function getCorsOrigin(request, env) {
     return origin;
   }
 
-  return allowedOrigins[0];
+  return allowedOrigins[0] || '*';
 }
 
 function corsHeaders(origin) {
@@ -49,36 +62,95 @@ function json(body, status = 200, origin = '*') {
   });
 }
 
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || '').trim());
+function isRealAccessToken(value) {
+  const token = clean(value, 300);
+  if (!token) return false;
+
+  const placeholders = new Set([
+    'optional_private_access_token',
+    'optional',
+    'none',
+    'null',
+    'undefined',
+    'your_private_key',
+    'YOUR_PRIVATE_KEY',
+  ]);
+
+  return !placeholders.has(token);
 }
 
-function clean(value, maxLength = 500) {
-  return String(value || '').trim().slice(0, maxLength);
+function envStatus(env) {
+  return {
+    hasEmailJsServiceId: Boolean(clean(env.EMAILJS_SERVICE_ID, 300)),
+    hasEmailJsTemplateId: Boolean(clean(env.EMAILJS_TEMPLATE_ID, 300)),
+    hasEmailJsPublicKey: Boolean(clean(env.EMAILJS_PUBLIC_KEY, 300)),
+    hasEmailJsAccessToken: isRealAccessToken(env.EMAILJS_ACCESS_TOKEN),
+  };
 }
 
-async function sendEmailJs(env, params) {
+function emailJsPayload(env, params) {
   const payload = {
-    service_id: env.EMAILJS_SERVICE_ID,
-    template_id: env.EMAILJS_TEMPLATE_ID,
-    user_id: env.EMAILJS_PUBLIC_KEY,
+    service_id: clean(env.EMAILJS_SERVICE_ID, 300),
+    template_id: clean(env.EMAILJS_TEMPLATE_ID, 300),
+    user_id: clean(env.EMAILJS_PUBLIC_KEY, 300),
     template_params: params,
   };
 
-  if (env.EMAILJS_ACCESS_TOKEN) {
-    payload.accessToken = env.EMAILJS_ACCESS_TOKEN;
+  if (isRealAccessToken(env.EMAILJS_ACCESS_TOKEN)) {
+    payload.accessToken = clean(env.EMAILJS_ACCESS_TOKEN, 300);
   }
 
-  const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+  return payload;
+}
+
+async function sendEmailJs(env, params) {
+  const response = await fetch(EMAILJS_SEND_URL, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(emailJsPayload(env, params)),
   });
 
+  const text = await response.text().catch(() => '');
+
   if (!response.ok) {
-    const text = await response.text().catch(() => '');
-    throw new Error(`EmailJS failed with ${response.status}: ${text}`);
+    const error = new Error(`EmailJS failed with ${response.status}: ${text}`);
+    error.status = response.status;
+    error.emailJsResponse = text;
+    throw error;
   }
+
+  return text;
+}
+
+function getTemplateParams({ studio, role, size, email, submittedAt }) {
+  return {
+    to_email: email,
+    user_email: email,
+    from_email: email,
+    reply_to: email,
+    email,
+
+    studio,
+    studio_name: studio,
+    company: studio,
+    company_name: studio,
+
+    role,
+    user_role: role,
+
+    size,
+    studio_size: size,
+    seats: size,
+
+    submitted_at: submittedAt,
+    submittedAt,
+    source: 'landing.kimiyaa.ai pilot form',
+
+    subject: 'New Kimiyaa pilot application',
+    message: `New Kimiyaa pilot application\n\nStudio: ${studio}\nRole: ${role}\nStudio size: ${size}\nEmail: ${email}\nSubmitted at: ${submittedAt}`,
+  };
 }
 
 export default {
@@ -86,12 +158,27 @@ export default {
     const origin = request.headers.get('Origin') || '';
     const allowedOrigins = getAllowedOrigins(env);
     const corsOrigin = getCorsOrigin(request, env);
+    const debugErrors = clean(env.DEBUG_ERRORS, 20) === '1';
 
     if (request.method === 'OPTIONS') {
       return preflight(corsOrigin);
     }
 
     const url = new URL(request.url);
+
+    if (url.pathname === '/health') {
+      return json(
+        {
+          ok: true,
+          worker: 'kimiyaa-pilot-form',
+          envStatus: envStatus(env),
+          allowedOrigins,
+        },
+        200,
+        corsOrigin,
+      );
+    }
+
     if (url.pathname !== '/apply') {
       return json({ ok: false, error: 'Not found' }, 404, corsOrigin);
     }
@@ -101,7 +188,15 @@ export default {
     }
 
     if (origin && !allowedOrigins.includes(origin)) {
-      return json({ ok: false, error: 'Origin not allowed' }, 403, corsOrigin);
+      return json(
+        {
+          ok: false,
+          error: 'Origin not allowed',
+          ...(debugErrors ? { receivedOrigin: origin, allowedOrigins } : {}),
+        },
+        403,
+        corsOrigin,
+      );
     }
 
     let body;
@@ -111,7 +206,6 @@ export default {
       return json({ ok: false, error: 'Invalid JSON body' }, 400, corsOrigin);
     }
 
-    // Honeypot field. Real users never fill this.
     if (clean(body.website, 200)) {
       return json({ ok: true }, 200, corsOrigin);
     }
@@ -122,31 +216,60 @@ export default {
     const email = clean(body.email, 160).toLowerCase();
 
     if (!studio || !role || !size || !isValidEmail(email)) {
-      return json({ ok: false, error: 'Please fill all required fields correctly.' }, 400, corsOrigin);
+      return json(
+        { ok: false, error: 'Please fill all required fields correctly.' },
+        400,
+        corsOrigin,
+      );
     }
 
     if (!env.EMAILJS_SERVICE_ID || !env.EMAILJS_TEMPLATE_ID || !env.EMAILJS_PUBLIC_KEY) {
-      return json({ ok: false, error: 'Email service is not configured.' }, 500, corsOrigin);
+      return json(
+        {
+          ok: false,
+          error: 'Email service is not configured. Set EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, and EMAILJS_PUBLIC_KEY with Wrangler secrets.',
+          ...(debugErrors ? { envStatus: envStatus(env) } : {}),
+        },
+        500,
+        corsOrigin,
+      );
     }
 
     const submittedAt = new Date().toISOString();
 
     try {
-      await sendEmailJs(env, {
-        to_email: email,
-        reply_to: email,
-        email,
-        studio,
-        role,
-        size,
-        submitted_at: submittedAt,
-        source: 'landing.kimiyaa.ai pilot form',
-      });
+      await sendEmailJs(
+        env,
+        getTemplateParams({
+          studio,
+          role,
+          size,
+          email,
+          submittedAt,
+        }),
+      );
 
       return json({ ok: true }, 200, corsOrigin);
     } catch (error) {
-      console.error(error);
-      return json({ ok: false, error: 'Email delivery failed. Please try again.' }, 502, corsOrigin);
+      console.error('EmailJS delivery failed:', error);
+
+      return json(
+        {
+          ok: false,
+          error: debugErrors
+            ? `EmailJS error ${error.status || ''}: ${error.emailJsResponse || error.message || 'Unknown error'}`.trim()
+            : 'Email delivery failed. Please try again.',
+          ...(debugErrors
+            ? {
+                emailJsStatus: error.status || null,
+                emailJsResponse: error.emailJsResponse || null,
+                envStatus: envStatus(env),
+              }
+            : {}),
+        },
+        502,
+        corsOrigin,
+      );
     }
   },
 };

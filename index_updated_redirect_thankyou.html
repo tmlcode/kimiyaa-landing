@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Maya alternative that doesn't ask you to leave Maya behind. — Kimiyaa.ai</title>
+<meta name="description" content="Same Maya workflow, .ma files, hotkeys, and scripts — at ≤30% of Autodesk's price. Year 1 free. Switch in 0–2 days. The honest Maya vs Blender vs Kimiyaa comparison." />
+<link rel="canonical" href="https://landing.kimiyaa.ai/" />
+<!-- Change this after deploying the Cloudflare Worker. Example: https://api.kimiyaa.ai/apply -->
+<meta name="kimiyaa-api-endpoint" content="https://kimiyaa-pilot-form.kimiyaa-pilot-form.workers.dev/apply" />
+
+<meta property="og:title" content="The Maya alternative that doesn't ask you to leave Maya behind." />
+<meta property="og:description" content="Same workflow. ≤30% the cost. Year 1 free. Switch in 0–2 days." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://landing.kimiyaa.ai/" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0b0c0d;
+    --bg-elev: #131518;
+    --bg-elev-2: #1a1d22;
+    --bg-elev-3: #20242a;
+    --border: #25282e;
+    --border-soft: #1c1f24;
+    --ink: #ededec;
+    --ink-muted: #9a9da4;
+    --ink-dim: #6b6e76;
+    --accent: #d4a04f;
+    --accent-soft: rgba(212, 160, 79, 0.12);
+    --accent-line: rgba(212, 160, 79, 0.3);
+    --warn: #c87264;
+    --warn-soft: rgba(200, 114, 100, 0.1);
+    --good: #7fb37b;
+    --good-soft: rgba(127, 179, 123, 0.12);
+    --maxw: 1200px;
+    --maxw-narrow: 920px;
+    --radius: 6px;
+    --radius-lg: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg); color: var(--ink);
+    line-height: 1.55; font-size: 16px;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace; }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: var(--maxw-narrow); margin: 0 auto; padding: 0 24px; }
+
+  /* HEADER */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(11, 12, 13, 0.85);
+    backdrop-filter: saturate(180%) blur(12px);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; max-width: var(--maxw); margin: 0 auto;
+  }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+  .logo span { color: var(--accent); }
+  .nav-actions { display: flex; align-items: center; gap: 8px; }
+  .nav-link { color: var(--ink-muted); font-size: 14px; padding: 8px 12px; }
+  .nav-link:hover { color: var(--ink); }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    padding: 13px 22px; border-radius: var(--radius);
+    border: 1px solid transparent; cursor: pointer;
+    transition: transform 0.06s ease, background 0.15s ease, border-color 0.15s ease;
+    text-decoration: none; line-height: 1; white-space: nowrap;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: #1a1408; border-color: var(--accent); }
+  .btn-primary:hover { background: #e0ad5d; border-color: #e0ad5d; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--ink-muted); background: rgba(255,255,255,0.02); }
+  .btn-block { width: 100%; }
+  .btn-lg { padding: 16px 28px; font-size: 16px; }
+
+  /* SECTION */
+  section { padding: 88px 0; border-top: 1px solid var(--border-soft); }
+  section:first-of-type { border-top: none; }
+  .eyebrow {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 20px;
+  }
+  h1, h2, h3 {
+    font-family: 'Inter', sans-serif; font-weight: 600; letter-spacing: -0.022em;
+    line-height: 1.12; color: var(--ink);
+  }
+  h1 { font-size: clamp(34px, 5.4vw, 58px); }
+  h2 { font-size: clamp(28px, 3.8vw, 40px); margin-bottom: 20px; }
+  h3 { font-size: 20px; }
+  .lead { font-size: 18px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* HERO */
+  .hero { padding: 72px 0 88px; }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;
+  }
+  .hero h1 { margin-bottom: 24px; }
+  .hero h1 .accent { color: var(--accent); }
+  .hero-sub { font-size: 18px; color: var(--ink-muted); margin-bottom: 28px; line-height: 1.6; max-width: 560px; }
+  .hero-sub strong { color: var(--ink); font-weight: 500; }
+  .hero-ctas { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 28px; }
+  .hero-trust {
+    display: flex; flex-wrap: wrap; gap: 0 24px; row-gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-muted);
+    padding-top: 24px; border-top: 1px solid var(--border-soft);
+  }
+  .hero-trust span:not(:last-child)::after { content: '·'; margin-left: 24px; color: var(--ink-dim); }
+
+  /* HERO 3-WAY VISUAL */
+  .vs-stack { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .vs-card {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 22px 24px;
+    display: grid; grid-template-columns: auto 1fr auto; gap: 16px;
+    align-items: center; position: relative;
+  }
+  .vs-card.highlight {
+    border-color: var(--accent);
+    background: linear-gradient(180deg, rgba(212,160,79,0.08), rgba(212,160,79,0.02));
+    box-shadow: 0 0 0 1px var(--accent-line), 0 8px 32px rgba(212, 160, 79, 0.06);
+  }
+  .vs-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em;
+    color: var(--ink-dim); text-transform: uppercase; padding: 4px 8px;
+    border: 1px solid var(--border); border-radius: 4px; background: var(--bg);
+  }
+  .vs-card.highlight .vs-tag { color: var(--accent); border-color: var(--accent-line); }
+  .vs-name { font-size: 17px; font-weight: 600; letter-spacing: -0.01em; }
+  .vs-name small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-muted); margin-top: 2px; letter-spacing: 0; }
+  .vs-price { font-family: 'JetBrains Mono', monospace; font-size: 15px; color: var(--ink); text-align: right; white-space: nowrap; }
+  .vs-price small { display: block; font-size: 11px; color: var(--ink-dim); }
+  .vs-card.highlight .vs-price { color: var(--accent); }
+
+  /* WHY SWITCH */
+  .why-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+    margin-top: 48px;
+  }
+  .why-card {
+    background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px;
+  }
+  .why-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 36px; font-weight: 500;
+    color: var(--accent); letter-spacing: -0.02em; margin-bottom: 12px; line-height: 1;
+  }
+  .why-num small { font-size: 14px; color: var(--ink-muted); margin-left: 8px; font-weight: 400; }
+  .why-title { font-size: 18px; margin-bottom: 10px; }
+  .why-body { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+
+  /* COMPARISON TABLE */
+  .comp { background: var(--bg-elev); }
+  .comp-table-wrap {
+    margin-top: 40px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden; overflow-x: auto;
+  }
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 720px; }
+  .comp-table thead th {
+    text-align: left; padding: 22px 20px; font-weight: 600; font-size: 12px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-elev-2); vertical-align: bottom;
+  }
+  .comp-table thead th.kimi {
+    color: var(--accent);
+    background: linear-gradient(180deg, rgba(212,160,79,0.08), var(--bg-elev-2));
+  }
+  .comp-table thead th .label-name { display: block; font-size: 16px; text-transform: none; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 4px; }
+  .comp-table thead th.kimi .label-name { color: var(--accent); }
+  .comp-table thead th .label-tag { font-weight: 400; color: var(--ink-dim); font-size: 11px; }
+  .comp-table tbody td {
+    padding: 16px 20px; border-bottom: 1px solid var(--border-soft);
+    vertical-align: top; line-height: 1.45;
+  }
+  .comp-table tbody tr:last-child td { border-bottom: none; }
+  .comp-table tbody tr:hover { background: rgba(255,255,255,0.01); }
+  .comp-table .row-label {
+    color: var(--ink-muted); width: 28%; font-weight: 500;
+    border-right: 1px solid var(--border-soft);
+  }
+  .comp-table .col-maya { color: var(--ink); width: 24%; border-right: 1px solid var(--border-soft); }
+  .comp-table .col-blender { color: var(--ink); width: 24%; border-right: 1px solid var(--border-soft); }
+  .comp-table .col-kimi {
+    color: var(--ink); width: 24%; font-weight: 500;
+    background: rgba(212,160,79,0.025);
+  }
+  .comp-table .col-kimi strong { color: var(--accent); font-weight: 600; }
+  .check-good { color: var(--good); font-weight: 600; }
+  .check-warn { color: var(--warn); font-weight: 500; }
+  .check-neutral { color: var(--ink-muted); }
+
+  /* CALCULATOR */
+  .calc-wrap {
+    margin-top: 48px; background: var(--bg-elev);
+    border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 40px;
+  }
+  .calc-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 56px; align-items: center; }
+  .calc-input { display: flex; flex-direction: column; gap: 16px; }
+  .calc-input label { font-size: 14px; color: var(--ink-muted); }
+  .calc-seats {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 64px; font-weight: 500; color: var(--ink);
+    letter-spacing: -0.03em; line-height: 1;
+  }
+  .calc-seats small { font-size: 16px; color: var(--ink-muted); margin-left: 8px; font-weight: 400; }
+  .slider {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 4px; background: var(--border);
+    border-radius: 2px; outline: none;
+  }
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--accent); cursor: pointer;
+    border: 3px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--accent);
+  }
+  .slider::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--accent); cursor: pointer; border: 3px solid var(--bg);
+  }
+  .calc-output { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .calc-cell {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px;
+  }
+  .calc-cell.highlight { border-color: var(--accent); background: var(--accent-soft); }
+  .calc-cell-label {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--ink-muted); margin-bottom: 10px;
+  }
+  .calc-cell.highlight .calc-cell-label { color: var(--accent); }
+  .calc-cell-value {
+    font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 500;
+    color: var(--ink); letter-spacing: -0.015em; margin-bottom: 6px;
+  }
+  .calc-cell.highlight .calc-cell-value { color: var(--accent); }
+  .calc-cell-note { font-size: 12px; color: var(--ink-muted); }
+  .calc-savings {
+    grid-column: 1 / -1; padding: 24px;
+    background: var(--bg); border: 1px solid var(--accent);
+    border-radius: var(--radius); margin-top: 8px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .calc-savings-label { font-size: 14px; color: var(--ink-muted); }
+  .calc-savings-num {
+    font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 500;
+    color: var(--accent); letter-spacing: -0.02em;
+  }
+
+  /* WHAT YOU KEEP */
+  .keep-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+    margin-top: 40px;
+  }
+  .keep-item {
+    padding: 22px; background: var(--bg-elev); border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  .keep-icon {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--good); letter-spacing: 0.08em; margin-bottom: 10px;
+  }
+  .keep-icon::before { content: '✓ '; font-weight: 700; }
+  .keep-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
+  .keep-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.55; }
+
+  /* MIGRATION */
+  .migration { background: var(--bg-elev); }
+  .migration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+  .migration-steps { list-style: none; counter-reset: step; padding: 0; }
+  .migration-steps li {
+    counter-increment: step; padding: 20px 0 20px 56px;
+    position: relative; border-bottom: 1px solid var(--border-soft);
+  }
+  .migration-steps li:last-child { border-bottom: none; }
+  .migration-steps li::before {
+    content: counter(step, decimal-leading-zero);
+    position: absolute; left: 0; top: 22px;
+    font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500;
+    color: var(--accent); letter-spacing: 0.05em;
+    background: var(--accent-soft); border: 1px solid var(--accent-line);
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .migration-step-title { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+  .migration-step-time {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--accent); letter-spacing: 0.05em; text-transform: uppercase;
+    margin-left: 10px;
+  }
+  .migration-step-desc { font-size: 14px; color: var(--ink-muted); line-height: 1.6; }
+  .migration-aside { padding: 32px; background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  .migration-aside h3 { margin-bottom: 16px; font-size: 18px; }
+  .migration-aside p { color: var(--ink-muted); font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+  .migration-aside p strong { color: var(--ink); font-weight: 500; }
+
+  /* CONTEXT */
+  .context-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 40px; }
+  .context-cell {
+    padding: 28px; border: 1px solid var(--border);
+    background: var(--bg-elev);
+  }
+  .context-cell:nth-child(2) { border-left: none; border-right: none; }
+  .context-time {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 14px;
+  }
+  .context-text { font-size: 15px; color: var(--ink-muted); line-height: 1.6; }
+  .context-text strong { color: var(--ink); font-weight: 500; }
+
+  /* RISK REVERSAL */
+  .risk-strip {
+    margin-top: 56px; padding: 32px;
+    border: 1px solid var(--accent); border-radius: var(--radius-lg);
+    background: linear-gradient(180deg, var(--accent-soft), transparent 90%);
+    text-align: center;
+  }
+  .risk-strip h3 { font-size: 22px; margin-bottom: 12px; }
+  .risk-strip p { color: var(--ink-muted); font-size: 15px; line-height: 1.6; max-width: 620px; margin: 0 auto 20px; }
+  .risk-badges {
+    display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); letter-spacing: 0.04em;
+  }
+  .risk-badges span::before { content: '✓ '; color: var(--accent); font-weight: 700; }
+
+  /* FAQ */
+  .faq-list { margin-top: 32px; }
+  details {
+    border-bottom: 1px solid var(--border-soft);
+    padding: 22px 0;
+  }
+  details:first-of-type { border-top: 1px solid var(--border-soft); }
+  details[open] summary { color: var(--accent); }
+  summary {
+    list-style: none; cursor: pointer; font-size: 16px; font-weight: 500;
+    color: var(--ink); padding-right: 40px; position: relative; line-height: 1.5;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: '+'; position: absolute; right: 0; top: -4px;
+    font-size: 22px; font-weight: 300; color: var(--ink-muted);
+    transition: transform 0.2s ease;
+  }
+  details[open] summary::after { content: '−'; color: var(--accent); }
+  details p { margin-top: 14px; color: var(--ink-muted); font-size: 14px; line-height: 1.65; padding-right: 40px; }
+
+  /* CTA SECTION */
+  .cta-section { background: var(--bg-elev); }
+  .cta-card {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-lg); padding: 56px 48px;
+    text-align: center;
+  }
+  .cta-card h2 { max-width: 760px; margin-left: auto; margin-right: auto; }
+  .cta-card .lead { max-width: 640px; margin: 20px auto 32px; }
+  .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .cta-fineprint {
+    margin-top: 20px; font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    color: var(--ink-muted); letter-spacing: 0.04em;
+  }
+  .cta-fineprint span:not(:last-child)::after { content: ' · '; color: var(--ink-dim); }
+
+  /* INLINE FORM */
+  .inline-form {
+    margin-top: 48px; max-width: 560px; margin-left: auto; margin-right: auto;
+    display: grid; gap: 12px;
+  }
+  .inline-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .form-input, .form-select {
+    width: 100%; padding: 12px 14px;
+    background: var(--bg-elev-2); border: 1px solid var(--border);
+    border-radius: var(--radius); color: var(--ink); font-family: inherit; font-size: 15px;
+    transition: border-color 0.15s ease;
+    appearance: none; -webkit-appearance: none;
+  }
+  .form-input:focus, .form-select:focus {
+    outline: none; border-color: var(--accent); background: var(--bg);
+  }
+  .form-select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'><path fill='%239a9da4' d='M5 6L0 0h10z'/></svg>");
+    background-repeat: no-repeat; background-position: right 14px center;
+    padding-right: 36px;
+  }
+  .form-fineprint { font-size: 12px; color: var(--ink-dim); text-align: center; margin-top: 8px; }
+
+  /* FOOTER */
+  footer { background: var(--bg); border-top: 1px solid var(--border-soft); padding: 56px 0 40px; }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+    color: var(--ink-dim); font-size: 13px;
+  }
+
+  /* STICKY CTA */
+  .sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 40;
+    background: rgba(11, 12, 13, 0.95);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    padding: 14px 20px calc(14px + env(safe-area-inset-bottom));
+    transform: translateY(110%);
+    transition: transform 0.3s ease;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .sticky-cta.show { transform: translateY(0); }
+  .sticky-cta-text { font-size: 14px; color: var(--ink); }
+  .sticky-cta-text strong { color: var(--accent); }
+  .sticky-cta .btn { padding: 11px 18px; font-size: 14px; }
+
+  @media (max-width: 980px) {
+    section { padding: 64px 0; }
+    .hero-grid, .migration-grid, .calc-grid { grid-template-columns: 1fr; gap: 40px; }
+    .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+    .keep-grid { grid-template-columns: 1fr 1fr; }
+    .context-row { grid-template-columns: 1fr; }
+    .context-cell { border-left: 1px solid var(--border); border-right: 1px solid var(--border); border-top: none; }
+    .context-cell:first-child { border-top: 1px solid var(--border); }
+    .calc-savings { flex-direction: column; gap: 8px; align-items: flex-start; }
+    .cta-card { padding: 40px 24px; }
+  }
+  @media (max-width: 640px) {
+    .container, .container-narrow { padding: 0 18px; }
+    section { padding: 48px 0; }
+    .hero { padding: 36px 0 56px; }
+    h1 { font-size: 32px; line-height: 1.1; }
+    h2 { font-size: 24px; }
+    .lead { font-size: 16px; }
+    .nav { padding: 12px 18px; }
+    .nav-link { display: none; }
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .hero-ctas .btn { width: 100%; }
+    .why-grid, .keep-grid { grid-template-columns: 1fr; gap: 12px; }
+    .calc-wrap { padding: 28px 22px; }
+    .calc-output { grid-template-columns: 1fr; }
+    .calc-seats { font-size: 48px; }
+    .calc-savings-num { font-size: 24px; }
+    .inline-form-row { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .sticky-cta-text { display: none; }
+    .sticky-cta { justify-content: center; }
+    .sticky-cta .btn { width: 100%; }
+    body { padding-bottom: 80px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="nav">
+    <div class="logo">kimiyaa<span>.ai</span></div>
+    <div class="nav-actions">
+      <a href="#compare" class="nav-link">Compare</a>
+      <a href="#calculator" class="nav-link">Savings</a>
+      <a href="#switch" class="nav-link">How to switch</a>
+      <a href="#apply" class="btn btn-primary">Apply for Free Year →</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Maya alternative · for 50–300 seat studios</div>
+        <h1>The Maya alternative that doesn't ask you to <span class="accent">leave Maya behind.</span></h1>
+        <p class="hero-sub">
+          Same hotkeys. Same <span class="mono">.ma</span> files. Same scripts. Same pipeline. Running on the Blender engine — at <strong>≤30% of Autodesk's price.</strong> Switch in 0–2 days. Year 1 is free.
+        </p>
+        <div class="hero-ctas">
+          <a href="#apply" class="btn btn-primary btn-lg">Apply for the Free Year →</a>
+          <a href="#compare" class="btn btn-ghost btn-lg">See the comparison</a>
+        </div>
+        <div class="hero-trust">
+          <span>Year 1 free</span>
+          <span>≤30% of Maya thereafter</span>
+          <span>0–2 days to switch</span>
+          <span>Local AI optional</span>
+        </div>
+      </div>
+      <div class="vs-stack">
+        <div class="vs-card">
+          <div class="vs-tag">Option 1</div>
+          <div class="vs-name">Stay on Maya<small>What you pay today</small></div>
+          <div class="vs-price">$1,785<small>/seat/yr</small></div>
+        </div>
+        <div class="vs-card">
+          <div class="vs-tag">Option 2</div>
+          <div class="vs-name">Switch to Blender<small>2–3 months retraining</small></div>
+          <div class="vs-price">Free<small>+ retraining cost</small></div>
+        </div>
+        <div class="vs-card highlight">
+          <div class="vs-tag">Option 3</div>
+          <div class="vs-name">Switch to Kimiyaa<small>Maya UX. Blender engine.</small></div>
+          <div class="vs-price">$0<small>Year 1 · ≤30% after</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SWITCH -->
+<section>
+  <div class="container">
+    <div class="eyebrow">Why studios are leaving Maya</div>
+    <h2>Four numbers that explain the spreadsheet.</h2>
+    <p class="lead" style="max-width: 740px;">You didn't search "Maya alternative" because Maya is bad. You searched it because the math has stopped working. Here's the math.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">$1,785<small>/seat/year</small></div>
+        <div class="why-title">What Maya commercial costs you per artist.</div>
+        <div class="why-body">A 50-artist studio bleeds ~$90,000 a year just to Autodesk — before Houdini, Nuke, Substance, render farm, hardware. For an Indian outsourcing studio billing in INR, that's an FX-exposed cost centre.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">~15%<small>annual hike</small></div>
+        <div class="why-title">Autodesk's regional price increases — without notice.</div>
+        <div class="why-body">Forum threads on Polycount and Blender Artists carry the same complaint every quarter. Forced subscription transitions. Killed perpetual licences. The brand sentiment is the worst it's been in a decade.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">2–3 months<small>per artist</small></div>
+        <div class="why-title">What full Blender retraining actually costs you.</div>
+        <div class="why-body">Different shortcuts. Different modifier stack. Different rigging logic. On a 50-person team, that's measurable lost output. Most studios start the migration and quietly back out by month 2.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-num">$0<small>walked-past revenue</small></div>
+        <div class="why-title">The Blender-specified RFPs you keep declining.</div>
+        <div class="why-body">Western indies, EU studios, OTT documentaries, and increasingly Netflix-adjacent work specify Blender. Your studio sees the brief, sees the requirement, and passes. Real revenue, every quarter.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare" class="comp">
+  <div class="container">
+    <div class="eyebrow">The honest comparison</div>
+    <h2>Maya vs. Blender vs. Kimiyaa.</h2>
+    <p class="lead" style="max-width: 740px;">No marketing colours. No hidden footnotes. The actual decision matrix every studio runs in private — published.</p>
+    <div class="comp-table-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th><span class="label-name">Maya</span><span class="label-tag">Autodesk · commercial</span></th>
+            <th><span class="label-name">Blender</span><span class="label-tag">Free · open source</span></th>
+            <th class="kimi"><span class="label-name">Kimiyaa</span><span class="label-tag mono">Maya UX · Blender engine</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="row-label">Per-seat licence cost</td>
+            <td class="col-maya"><span class="mono">$1,785</span> / year</td>
+            <td class="col-blender"><span class="check-good">Free</span></td>
+            <td class="col-kimi"><strong>≤ 30% of Maya</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Year 1 of adoption</td>
+            <td class="col-maya">Full price</td>
+            <td class="col-blender">Free</td>
+            <td class="col-kimi"><strong>FREE</strong> · full access</td>
+          </tr>
+          <tr>
+            <td class="row-label">Maya hotkeys & UX</td>
+            <td class="col-maya"><span class="check-good">✓ Native</span></td>
+            <td class="col-blender"><span class="check-warn">✗ Different</span></td>
+            <td class="col-kimi"><strong>✓ Identical</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Opens <span class="mono">.ma</span> / <span class="mono">.mb</span> files</td>
+            <td class="col-maya"><span class="check-good">✓ Native</span></td>
+            <td class="col-blender"><span class="check-warn">Import only, lossy</span></td>
+            <td class="col-kimi"><strong>✓ Native, round-trips</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">MEL / Python scripts</td>
+            <td class="col-maya"><span class="check-good">✓ Native</span></td>
+            <td class="col-blender"><span class="check-warn">✗ Rewrite required</span></td>
+            <td class="col-kimi"><strong>✓ Python preserved · MEL most patterns</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Onboarding per artist</td>
+            <td class="col-maya">Existing</td>
+            <td class="col-blender"><span class="check-warn">2–3 months retraining</span></td>
+            <td class="col-kimi"><strong>0–2 days</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Pipeline rebuild</td>
+            <td class="col-maya">N/A</td>
+            <td class="col-blender"><span class="check-warn">Often required</span></td>
+            <td class="col-kimi"><strong>None</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Blender-deliverable output</td>
+            <td class="col-maya"><span class="check-warn">Export only</span></td>
+            <td class="col-blender"><span class="check-good">✓ Native</span></td>
+            <td class="col-kimi"><strong>✓ Native by architecture</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">AI features</td>
+            <td class="col-maya">Cloud (Flow Studio)</td>
+            <td class="col-blender">Plugin ecosystem</td>
+            <td class="col-kimi"><strong>Optional · local / on-prem</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Client IP stays in studio</td>
+            <td class="col-maya"><span class="check-warn">Cloud AI = no</span></td>
+            <td class="col-blender"><span class="check-good">Yes (no AI default)</span></td>
+            <td class="col-kimi"><strong>✓ Yes · air-gappable</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Annual price hike risk</td>
+            <td class="col-maya"><span class="check-warn">~15% regional, no notice</span></td>
+            <td class="col-blender">Free</td>
+            <td class="col-kimi"><strong>Locked at signing</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Pilot support</td>
+            <td class="col-maya">Paid</td>
+            <td class="col-blender">Community</td>
+            <td class="col-kimi"><strong>High-touch · free Year 1</strong></td>
+          </tr>
+          <tr>
+            <td class="row-label">Long-term commitment</td>
+            <td class="col-maya">Renew or churn</td>
+            <td class="col-blender">N/A</td>
+            <td class="col-kimi"><strong>3–5 year partnership</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#apply" class="btn btn-primary btn-lg">Apply for the Free Year →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SAVINGS CALCULATOR -->
+<section id="calculator">
+  <div class="container">
+    <div class="eyebrow">The savings, in your own ledger</div>
+    <h2>What does switching from Maya save your studio?</h2>
+    <p class="lead" style="max-width: 740px;">Drag the slider to your studio's seat count. The numbers are based on Maya commercial at $1,785/seat/year and Kimiyaa's published ≤30% post-Year-1 ceiling. Year 1 is free, so the first-year savings = your full Maya bill.</p>
+
+    <div class="calc-wrap">
+      <div class="calc-grid">
+        <div class="calc-input">
+          <label>Maya-trained artists at your studio</label>
+          <div class="calc-seats"><span id="seats-display">50</span><small>seats</small></div>
+          <input type="range" min="5" max="300" value="50" step="5" class="slider" id="seats-slider" />
+          <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-dim);">
+            <span>5</span><span>50</span><span>150</span><span>300</span>
+          </div>
+        </div>
+        <div class="calc-output">
+          <div class="calc-cell">
+            <div class="calc-cell-label">Your annual Maya bill</div>
+            <div class="calc-cell-value mono" id="maya-cost">$89,250</div>
+            <div class="calc-cell-note">at $1,785/seat — before any regional hike</div>
+          </div>
+          <div class="calc-cell highlight">
+            <div class="calc-cell-label">Kimiyaa post-Year-1</div>
+            <div class="calc-cell-value mono" id="kimi-cost">$26,775</div>
+            <div class="calc-cell-note">capped at 30% of Maya, locked at signing</div>
+          </div>
+          <div class="calc-savings">
+            <div>
+              <div class="calc-savings-label">Year 1 savings (free pilot) + 4 years at ≤30%</div>
+              <div style="color: var(--ink-dim); font-size: 12px; margin-top: 4px;">Compounded over a typical 5-year studio horizon</div>
+            </div>
+            <div class="calc-savings-num mono" id="five-yr">$339,150</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#apply" class="btn btn-primary btn-lg">Lock In Year 1 Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU KEEP -->
+<section class="comp">
+  <div class="container">
+    <div class="eyebrow">What switching does not cost you</div>
+    <h2>Everything you actually like about Maya. Kept.</h2>
+    <p class="lead" style="max-width: 720px;">The reason most "Maya replacement" pitches fail is they ask you to give up everything that worked. We don't.</p>
+    <div class="keep-grid">
+      <div class="keep-item">
+        <div class="keep-icon">Workflow</div>
+        <div class="keep-title">Your hotkeys, shelves, and outliner.</div>
+        <div class="keep-desc">Identical. The artist's day-to-day muscle memory does not change. They open Kimiyaa and it looks like Maya.</div>
+      </div>
+      <div class="keep-item">
+        <div class="keep-icon">Files</div>
+        <div class="keep-title">Your <span class="mono">.ma</span> and <span class="mono">.mb</span> scenes.</div>
+        <div class="keep-desc">Open natively. References resolve. Asset libraries open as-is. Round-trip back to Maya if a freelancer needs them.</div>
+      </div>
+      <div class="keep-item">
+        <div class="keep-icon">Scripts</div>
+        <div class="keep-title">Your Python and MEL.</div>
+        <div class="keep-desc">Python tools and pipeline scripts run with minimal changes. MEL — the most-used patterns are supported.</div>
+      </div>
+      <div class="keep-item">
+        <div class="keep-icon">Plugins</div>
+        <div class="keep-title">The plugins you actually rely on.</div>
+        <div class="keep-desc">Rigging and grooming first — Advanced Skeleton, mGear, Yeti prioritised. We publish a compatibility matrix, openly.</div>
+      </div>
+      <div class="keep-item">
+        <div class="keep-icon">Pipeline</div>
+        <div class="keep-title">Your Houdini / Nuke / Substance / USD chain.</div>
+        <div class="keep-desc">Standard exchange formats are first-class. Your downstream pipeline doesn't notice the change upstream.</div>
+      </div>
+      <div class="keep-item">
+        <div class="keep-icon">Bench</div>
+        <div class="keep-title">Your freelance bench.</div>
+        <div class="keep-desc">They keep working in Maya. They send you <span class="mono">.ma</span> files. You open them in Kimiyaa. Nothing changes for them.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MIGRATION -->
+<section id="switch" class="migration">
+  <div class="container">
+    <div class="eyebrow">The migration</div>
+    <h2>Switch from Maya in 0–2 days, not 2–3 months.</h2>
+    <p class="lead" style="max-width: 720px;">Because Kimiyaa is Maya's UX on top of Blender's engine, "switching" is closer to installing software than learning it. Here's what an actual switch week looks like.</p>
+    <div class="migration-grid">
+      <ol class="migration-steps">
+        <li>
+          <div class="migration-step-title">Install Kimiyaa<span class="migration-step-time">Day 0 · 1 hour</span></div>
+          <div class="migration-step-desc">Standard Windows / macOS / Linux installer. Connects to your studio's existing asset server, render farm, and version control. No new infrastructure.</div>
+        </li>
+        <li>
+          <div class="migration-step-title">Open a real scene<span class="migration-step-time">Day 0 · same hour</span></div>
+          <div class="migration-step-desc">Pick a current shot. Open the <span class="mono">.ma</span> file in Kimiyaa. Your rig appears. Your hotkeys work. Your scripts run. Your TD nods slowly.</div>
+        </li>
+        <li>
+          <div class="migration-step-title">Run a real task<span class="migration-step-time">Day 1</span></div>
+          <div class="migration-step-desc">Block out an animation. Iterate a model. Bake a sim. The artist's productivity returns within hours — not weeks.</div>
+        </li>
+        <li>
+          <div class="migration-step-title">Roll to the team<span class="migration-step-time">Day 2 onward</span></div>
+          <div class="migration-step-desc">Pilot 5 seats on one project. Then 20. Then the team. Maya licences keep running in parallel for the duration of Year 1 — the worst-case is "no change."</div>
+        </li>
+      </ol>
+      <aside class="migration-aside">
+        <h3>What about our running projects?</h3>
+        <p>Don't move them. <strong>Pilot Kimiyaa on the next project</strong>, while existing Maya licences run out their term. New work starts saving from week one. Old work finishes on the toolchain it started on.</p>
+        <p>By the time your Maya renewal arrives, you have a quantified case study from your own studio — and a clean exit option.</p>
+        <p style="margin-top: 24px;"><strong style="color: var(--accent);">Risk reversal:</strong> If Kimiyaa doesn't earn the seat by month 12, you walk away. You haven't paid us. Your Maya licences kept running. The pilot is structured so the worst-case is "no change."</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT / PROOF -->
+<section>
+  <div class="container">
+    <div class="eyebrow">The market is moving</div>
+    <h2>You're not the first studio asking these questions in 2026.</h2>
+    <div class="context-row">
+      <div class="context-cell">
+        <div class="context-time">January 2026</div>
+        <div class="context-text"><strong>Netflix Animation Studios joined the Blender Development Fund as Corporate Patron</strong> — the first major studio to do so. Studios bidding on Netflix-adjacent work are increasingly asked, "do you have Blender talent?"</div>
+      </div>
+      <div class="context-cell">
+        <div class="context-time">Last 12 months</div>
+        <div class="context-text"><strong>Autodesk laid off ~1,000 staff</strong> while pushing through ~15% regional price hikes without notice. Sentiment in the artist community is the worst it's been in a decade.</div>
+      </div>
+      <div class="context-cell">
+        <div class="context-time">Now</div>
+        <div class="context-text"><strong>Generative AI in animation is growing 36% YoY</strong> — but most of it is cloud-only. Studios with NDA workloads need a different answer.</div>
+      </div>
+    </div>
+
+    <div class="risk-strip">
+      <h3>Year 1 free. No card. No commitment. No risk.</h3>
+      <p>We don't think you should pay to find out whether this works. Run a real project on Kimiyaa for a year, with our team beside yours. If it doesn't earn the seat, you walk away — Maya licences still running, no invoice from us.</p>
+      <div class="risk-badges">
+        <span>Year 1 free</span>
+        <span>No payment details required</span>
+        <span>Maya runs in parallel</span>
+        <span>Walk away anytime</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="comp">
+  <div class="container container-narrow">
+    <div class="eyebrow">Migration objections, handled</div>
+    <h2>The questions you'd ask before signing a pilot.</h2>
+    <div class="faq-list">
+      <details>
+        <summary>How is this different from just switching to Blender?</summary>
+        <p>Blender is excellent, free, and improving fast. But your artists aren't trained in it. Your scripts aren't in it. Your clients haven't migrated to it. The switching cost — 2–3 months per artist — is the actual reason most studios stay on Maya. Kimiyaa is the bridge: Maya's UX so artists are productive day one, Blender's engine underneath so output is Blender-native by architecture.</p>
+      </details>
+      <details>
+        <summary>What if my pipeline breaks?</summary>
+        <p>It won't, because it doesn't have to change. Standard exchange formats (USD, FBX, Alembic) are first-class. <span class="mono">.ma</span>/<span class="mono">.mb</span> read natively. Your Houdini, Nuke, Substance, and render farm chain doesn't notice anything different upstream. If something specific to your pipeline doesn't translate, the pilot is structured to surface it in week 1, not month 12 — and Maya licences keep running in parallel as insurance.</p>
+      </details>
+      <details>
+        <summary>Will my Maya scripts (MEL / Python) actually work?</summary>
+        <p>Python — yes, your existing tools and pipeline scripts run with minimal to no changes. MEL — the most-used patterns are supported; we publish a compatibility matrix to your team during the pilot so there are no surprises. If you have a specific MEL-heavy tool, send it on the application; we'll tell you honestly before you start.</p>
+      </details>
+      <details>
+        <summary>What about plugins like mGear, Advanced Skeleton, Yeti, Arnold?</summary>
+        <p>We've prioritised the rigging and grooming plugins our pilot studios use most. On the application, list your top 5 most-used plugins. We'll respond with which are supported today and which are on the next quarter's roadmap — before you commit to anything.</p>
+      </details>
+      <details>
+        <summary>How long does a real switch actually take?</summary>
+        <p>An individual Maya artist is productive in 0–2 days — often within hours of installing. A studio rolling Kimiyaa across the team typically does so over 2–4 weeks, project-by-project, with Maya running in parallel until the rollout is complete. No "big-bang" cutover required.</p>
+      </details>
+      <details>
+        <summary>What happens to pricing after Year 1?</summary>
+        <p>Capped at 30% of equivalent Autodesk Maya pricing — committed contractually at signing, not a launch discount. We don't surprise-hike like Autodesk does. Studios that sign a multi-year pilot extension lock that ceiling for the full term.</p>
+      </details>
+      <details>
+        <summary>Can the AI run on-prem? Our client contracts forbid cloud uploads.</summary>
+        <p>Yes. The optional AI tools deploy on your own hardware, behind your firewall. Client IP never leaves your network. There's a cloud option if you prefer it; the choice is yours per project. This is one of the two reasons NDA-bound studios start pilots.</p>
+      </details>
+      <details>
+        <summary>What if it doesn't work for my studio?</summary>
+        <p>You walk away. You haven't paid us. Your Maya licences kept running the whole time. The pilot is structured so the worst-case is "no change." That's the whole point of Year 1 being free.</p>
+      </details>
+      <details>
+        <summary>How is this different from Autodesk Flow Studio (Wonder Dynamics)?</summary>
+        <p>Flow Studio is an AI motion-and-character tool inside the Autodesk ecosystem — you're still paying Autodesk's tax to use it. Kimiyaa is a full DCC alternative. Different category, different problem.</p>
+      </details>
+      <details>
+        <summary>What's the catch?</summary>
+        <p>We're a young company. We don't have 30 years of edge cases in our QA. That's why Year 1 is free, support is high-touch, and your feedback shapes the product weekly. If a workflow doesn't translate cleanly, we want to know in week 1, not month 12.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA + INLINE FORM -->
+<section id="apply" class="cta-section">
+  <div class="container container-narrow">
+    <div class="cta-card">
+      <div class="eyebrow">Apply for the pilot</div>
+      <h2>Switch from Maya. Keep everything that actually works.</h2>
+      <p class="lead">A free year of full production access. Real shots, real artists, real deadlines. If it doesn't earn the seat, you walk away. Maya runs in parallel the whole time.</p>
+
+      <form class="inline-form" id="pilot-form" onsubmit="handleSubmit(event)">
+        <input class="form-input" type="text" name="studio" required placeholder="Studio name" />
+        <div class="inline-form-row">
+          <select class="form-select" name="role" required>
+            <option value="" disabled selected>Your role</option>
+            <option>Studio Head / COO</option>
+            <option>VFX Supervisor</option>
+            <option>Pipeline TD / Lead</option>
+            <option>Other</option>
+          </select>
+          <select class="form-select" name="size" required>
+            <option value="" disabled selected>Studio size</option>
+            <option>5–30 seats</option>
+            <option>50–300 seats</option>
+            <option>300+ seats</option>
+          </select>
+        </div>
+        <input class="form-input" type="email" name="email" required placeholder="Work email" />
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Apply for the Free Year →</button>
+        <p class="form-fineprint">No card. No commitment. We respond within 48 hours from a human, not a queue.</p>
+      </form>
+
+      <div class="cta-fineprint">
+        <span>Year 1 free</span>
+        <span>≤30% of Maya thereafter</span>
+        <span>0–2 days to switch</span>
+        <span>Walk away anytime</span>
+      </div>
+
+      <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-soft); font-size: 14px; color: var(--ink-dim);">
+        Questions a form can't answer? Email me directly: <a href="mailto:founder@kimiyaa.ai" style="color: var(--ink); border-bottom: 1px solid var(--border);">founder@kimiyaa.ai</a> — I read these.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-bottom">
+      <div class="logo">kimiyaa<span>.ai</span> · Maya's workflow. Built on Blender.</div>
+      <div>© 2026 Kimiyaa.ai · <a href="#" style="color: var(--ink-muted);">Privacy</a> · <a href="#" style="color: var(--ink-muted);">Terms</a></div>
+      <a href="#apply" class="btn btn-ghost" style="padding: 10px 18px; font-size: 14px;">Apply for the Free Year →</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta-text">Save up to <strong>$62,475/yr</strong> on a 50-artist studio · Year 1 free</div>
+  <a href="#apply" class="btn btn-primary">Apply →</a>
+</div>
+
+<script>
+  // Sticky CTA
+  const stickyCta = document.getElementById('sticky-cta');
+  const applySection = document.getElementById('apply');
+  function onScroll() {
+    const scrolled = window.scrollY;
+    const triggerAt = window.innerHeight * 0.5;
+    const formRect = applySection.getBoundingClientRect();
+    const formInView = formRect.top < window.innerHeight * 0.7 && formRect.bottom > 0;
+    if (scrolled > triggerAt && !formInView) stickyCta.classList.add('show');
+    else stickyCta.classList.remove('show');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Savings calculator
+  const slider = document.getElementById('seats-slider');
+  const seatsDisplay = document.getElementById('seats-display');
+  const mayaCost = document.getElementById('maya-cost');
+  const kimiCost = document.getElementById('kimi-cost');
+  const fiveYr = document.getElementById('five-yr');
+  const stickyText = document.querySelector('.sticky-cta-text strong');
+
+  const MAYA_PRICE = 1785;
+  const KIMI_RATIO = 0.30;
+
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+
+  function updateCalc() {
+    const seats = parseInt(slider.value);
+    const maya = seats * MAYA_PRICE;
+    const kimi = Math.round(maya * KIMI_RATIO);
+    const yr1Savings = maya;                       // Year 1 free
+    const yr2to5Savings = (maya - kimi) * 4;       // 4 years at 70% off
+    const fiveYearTotal = yr1Savings + yr2to5Savings;
+    const annualSavings = maya - kimi;
+
+    seatsDisplay.textContent = seats;
+    mayaCost.textContent = fmt(maya);
+    kimiCost.textContent = fmt(kimi);
+    fiveYr.textContent = fmt(fiveYearTotal);
+
+    // Update sticky CTA dynamically
+    if (stickyText) stickyText.textContent = fmt(annualSavings) + '/yr';
+  }
+  slider.addEventListener('input', updateCalc);
+  updateCalc();
+
+  // Form handler
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+    const payload = Object.fromEntries(data.entries());
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.textContent;
+    const endpoint = document.querySelector('meta[name="kimiyaa-api-endpoint"]')?.content?.trim();
+
+    if (!endpoint || endpoint.includes('YOUR_WORKER_URL')) {
+      showFormError(form, 'Form endpoint is not configured yet. Add your Cloudflare Worker URL in the kimiyaa-api-endpoint meta tag.');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || 'Unable to submit the form right now.');
+      }
+
+      console.log('Pilot Application:', payload);
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'pilot_application_submitted', {
+          page: 'landing',
+          studio_size: payload.size,
+          role: payload.role,
+        });
+      }
+
+      window.location.assign('https://thankyou.kimiyaa.ai/');
+    } catch (error) {
+      console.error('Pilot form failed:', error);
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      showFormError(form, error.message || 'Something went wrong. Please try again.');
+    }
+  }
+
+  function showFormError(form, message) {
+    let errorBox = form.querySelector('.form-error');
+    if (!errorBox) {
+      errorBox = document.createElement('p');
+      errorBox.className = 'form-error';
+      errorBox.style.color = 'var(--warn)';
+      errorBox.style.fontSize = '13px';
+      errorBox.style.textAlign = 'center';
+      errorBox.style.marginTop = '4px';
+      form.appendChild(errorBox);
+    }
+    errorBox.textContent = message;
+  }
+
+  function escapeHtml(value) {
+    return String(value || '')
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#039;');
+  }
+</script>
+
+</body>
+</html>
