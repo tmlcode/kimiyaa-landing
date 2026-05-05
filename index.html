@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>The Maya alternative that doesn't ask you to leave Maya behind. — Kimiyaa.ai</title>
-<meta name="description" content="Same Maya workflow, .ma files, hotkeys, and scripts — at ≤30% of Autodesk's price. Year 1 free. Switch in 0–2 days. The honest Maya vs Blender vs Kimiyaa comparison." />
+<title>Kimiyaa — A familiar 3D workflow for studios rethinking their licensing line.</title>
+<meta name="description" content="Kimiyaa is a 3D platform designed for artists trained on industry-standard Maya® workflows. Pilot the platform with high-touch support before any commitment." />
 <link rel="canonical" href="https://landing.kimiyaa.ai/" />
-<!-- Change this after deploying the Cloudflare Worker. Example: https://api.kimiyaa.ai/apply -->
+<!-- Uses the same Cloudflare Worker endpoint as the current landing page form. -->
 <meta name="kimiyaa-api-endpoint" content="https://kimiyaa-pilot-form.kimiyaa-pilot-form.workers.dev/apply" />
 
-<meta property="og:title" content="The Maya alternative that doesn't ask you to leave Maya behind." />
-<meta property="og:description" content="Same workflow. ≤30% the cost. Year 1 free. Switch in 0–2 days." />
+<meta property="og:title" content="Kimiyaa — A familiar 3D workflow for studios rethinking their licensing line." />
+<meta property="og:description" content="A 3D platform designed for Maya®-trained artists. Pilot before any commitment." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://landing.kimiyaa.ai/" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -472,402 +472,412 @@
   <div class="nav">
     <div class="logo">kimiyaa<span>.ai</span></div>
     <div class="nav-actions">
+      <a href="about.html" class="nav-link">About</a>
       <a href="#compare" class="nav-link">Compare</a>
-      <a href="#calculator" class="nav-link">Savings</a>
-      <a href="#switch" class="nav-link">How to switch</a>
-      <a href="#apply" class="btn btn-primary">Apply for Free Year →</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="#apply" class="btn btn-primary">Apply for the pilot →</a>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO
+     Notes for editor (remove before publish):
+     - $1,785/seat anchor relocated to /pricing.html with full methodology.
+     - "Built on the Blender engine" claim removed from marketing surface
+       until Blender Foundation trademark/GPL status is publicly resolved.
+       Blender remains as a comparison column only (legitimate reference).
+     - "Year 1 free / no card" framing softened to "structured pilot" — the
+       commercial offer can still be made directly to qualified studios but
+       it should not be the headline pitch on a paid-traffic page.
+     - "0–2 days to switch" claim moved to softer "designed for fast onboarding"
+       until proof-of-claim video exists. -->
 <section class="hero">
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="eyebrow">Maya alternative · for 50–300 seat studios</div>
-        <h1>The Maya alternative that doesn't ask you to <span class="accent">leave Maya behind.</span></h1>
+        <div class="eyebrow">A 3D platform for studios with Maya®-trained teams</div>
+        <h1>A familiar workflow for studios rethinking their <span class="accent">licensing line.</span></h1>
         <p class="hero-sub">
-          Same hotkeys. Same <span class="mono">.ma</span> files. Same scripts. Same pipeline. Running on the Blender engine — at <strong>≤30% of Autodesk's price.</strong> Switch in 0–2 days. Year 1 is free.
+          Kimiyaa is built for studios whose artists are fluent in Maya®-style hotkeys, files, and scripts — and whose finance teams are running the math on annual subscription costs again. We work with you to evaluate fit before any commitment.
         </p>
         <div class="hero-ctas">
-          <a href="#apply" class="btn btn-primary btn-lg">Apply for the Free Year →</a>
+          <a href="#apply" class="btn btn-primary btn-lg">Apply to pilot →</a>
           <a href="#compare" class="btn btn-ghost btn-lg">See the comparison</a>
         </div>
         <div class="hero-trust">
-          <span>Year 1 free</span>
-          <span>≤30% of Maya thereafter</span>
-          <span>0–2 days to switch</span>
-          <span>Local AI optional</span>
+          <span>Structured pilot</span>
+          <span>High-touch onboarding</span>
+          <span>Local AI option</span>
+          <span>Compatibility-first design</span>
         </div>
       </div>
       <div class="vs-stack">
         <div class="vs-card">
           <div class="vs-tag">Option 1</div>
-          <div class="vs-name">Stay on Maya<small>What you pay today</small></div>
-          <div class="vs-price">$1,785<small>/seat/yr</small></div>
+          <div class="vs-name">Stay on Maya®<small>Your current toolchain</small></div>
+          <div class="vs-price" style="font-size:18px; line-height:1.4;">Subscription<small style="display:block; margin-top:8px;">renews annually</small></div>
         </div>
         <div class="vs-card">
           <div class="vs-tag">Option 2</div>
-          <div class="vs-name">Switch to Blender<small>2–3 months retraining</small></div>
-          <div class="vs-price">Free<small>+ retraining cost</small></div>
+          <div class="vs-name">Switch to Blender®<small>Free, but a different toolchain</small></div>
+          <div class="vs-price" style="font-size:18px; line-height:1.4;">Free<small style="display:block; margin-top:8px;">with retraining time</small></div>
         </div>
         <div class="vs-card highlight">
           <div class="vs-tag">Option 3</div>
-          <div class="vs-name">Switch to Kimiyaa<small>Maya UX. Blender engine.</small></div>
-          <div class="vs-price">$0<small>Year 1 · ≤30% after</small></div>
+          <div class="vs-name">Pilot Kimiyaa<small>Familiar workflow, structured pilot</small></div>
+          <div class="vs-price" style="font-size:18px; line-height:1.4;">By application<small style="display:block; margin-top:8px;"><a href="pricing.html" style="color:var(--accent); text-decoration:underline;">see pricing methodology</a></small></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHY SWITCH -->
+<!-- WHY: rebalanced
+     - Title softened from "leaving Maya" to "the math studios are running."
+     - $1,785 specific number removed; replaced with descriptive language
+       and link to /pricing for substantiation.
+     - "~15% annual hike" removed (unverifiable, sub-policy 2 risk).
+     - Forum citation ("Polycount, Blender Artists") removed.
+     - "Netflix-adjacent work specifies Blender" claim softened. -->
 <section>
   <div class="container">
-    <div class="eyebrow">Why studios are leaving Maya</div>
-    <h2>Four numbers that explain the spreadsheet.</h2>
-    <p class="lead" style="max-width: 740px;">You didn't search "Maya alternative" because Maya is bad. You searched it because the math has stopped working. Here's the math.</p>
+    <div class="eyebrow">The market context</div>
+    <h2>Why studios are looking, in 2026.</h2>
+    <p class="lead" style="max-width: 740px;">You didn't search for an alternative because Maya® is bad. Most teams searching are doing so because their finance, hiring, or compliance situation has shifted. Three of those shifts:</p>
     <div class="why-grid">
       <div class="why-card">
-        <div class="why-num">$1,785<small>/seat/year</small></div>
-        <div class="why-title">What Maya commercial costs you per artist.</div>
-        <div class="why-body">A 50-artist studio bleeds ~$90,000 a year just to Autodesk — before Houdini, Nuke, Substance, render farm, hardware. For an Indian outsourcing studio billing in INR, that's an FX-exposed cost centre.</div>
+        <div class="why-num" style="font-size:28px;">Licensing<small>line items</small></div>
+        <div class="why-title">Annual subscription costs are under fresh scrutiny.</div>
+        <div class="why-body">For studios billing in non-USD currencies, multi-year licence renewals carry real FX exposure. CFOs are asking what they used to leave to studio heads — and the spreadsheet question is sharper than it was three years ago. <a href="pricing.html" style="color:var(--accent); border-bottom:1px solid var(--accent-line);">See our pricing methodology →</a></div>
       </div>
       <div class="why-card">
-        <div class="why-num">~15%<small>annual hike</small></div>
-        <div class="why-title">Autodesk's regional price increases — without notice.</div>
-        <div class="why-body">Forum threads on Polycount and Blender Artists carry the same complaint every quarter. Forced subscription transitions. Killed perpetual licences. The brand sentiment is the worst it's been in a decade.</div>
+        <div class="why-num" style="font-size:28px;">Talent<small>retraining cost</small></div>
+        <div class="why-title">Switching DCC tools is genuinely expensive in artist-time.</div>
+        <div class="why-body">Different shortcuts, different rigging logic, different muscle memory. On a 50-person team, retraining onto an unfamiliar toolset is measurable lost output. Most studios who attempt a wholesale migration quietly back out partway through.</div>
       </div>
       <div class="why-card">
-        <div class="why-num">2–3 months<small>per artist</small></div>
-        <div class="why-title">What full Blender retraining actually costs you.</div>
-        <div class="why-body">Different shortcuts. Different modifier stack. Different rigging logic. On a 50-person team, that's measurable lost output. Most studios start the migration and quietly back out by month 2.</div>
+        <div class="why-num" style="font-size:28px;">NDA<small>workloads</small></div>
+        <div class="why-title">Cloud-AI features don't fit every contract.</div>
+        <div class="why-body">A growing share of studio work carries client confidentiality requirements that prohibit external cloud uploads. Studios with this exposure need a creative AI option that runs on local hardware — not a cloud-only one.</div>
       </div>
       <div class="why-card">
-        <div class="why-num">$0<small>walked-past revenue</small></div>
-        <div class="why-title">The Blender-specified RFPs you keep declining.</div>
-        <div class="why-body">Western indies, EU studios, OTT documentaries, and increasingly Netflix-adjacent work specify Blender. Your studio sees the brief, sees the requirement, and passes. Real revenue, every quarter.</div>
+        <div class="why-num" style="font-size:28px;">Format<small>flexibility</small></div>
+        <div class="why-title">Output requirements are increasingly platform-mixed.</div>
+        <div class="why-body">More briefs specify open-source-friendly delivery formats than three years ago. Studios that can serve both traditional and open-format pipelines reduce the work they have to decline at RFP stage.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
+<!-- COMPARISON TABLE: rebalanced
+     - Specific $1,785 price removed from Maya column; replaced with descriptive
+       "subscription, varies by region/term" and link to /pricing for cited methodology.
+     - "✓ Native, round-trips" softened to "compatibility-first design" pending proof video.
+     - "✓ Python preserved · MEL most patterns" softened to roadmap language.
+     - "0–2 days" onboarding softened to "designed for fast onboarding for Maya®-trained artists."
+     - "✓ Native by architecture" Blender-output claim removed (asserts Blender-derivation).
+     - REVERT NOTE: each softened cell can be restored to a stronger claim once
+       a corresponding proof asset is on /proof. Search this file for "REVERT-IF-PROVEN". -->
 <section id="compare" class="comp">
   <div class="container">
-    <div class="eyebrow">The honest comparison</div>
-    <h2>Maya vs. Blender vs. Kimiyaa.</h2>
-    <p class="lead" style="max-width: 740px;">No marketing colours. No hidden footnotes. The actual decision matrix every studio runs in private — published.</p>
+    <div class="eyebrow">An honest comparison</div>
+    <h2>Maya® vs. Blender® vs. Kimiyaa.</h2>
+    <p class="lead" style="max-width: 740px;">No hidden footnotes. The trade-offs studios actually weigh, written down. Pricing detail and methodology lives on the <a href="pricing.html" style="color:var(--accent); border-bottom:1px solid var(--accent-line);">pricing page</a>.</p>
     <div class="comp-table-wrap">
       <table class="comp-table">
         <thead>
           <tr>
             <th>&nbsp;</th>
-            <th><span class="label-name">Maya</span><span class="label-tag">Autodesk · commercial</span></th>
-            <th><span class="label-name">Blender</span><span class="label-tag">Free · open source</span></th>
-            <th class="kimi"><span class="label-name">Kimiyaa</span><span class="label-tag mono">Maya UX · Blender engine</span></th>
+            <th><span class="label-name">Maya®</span><span class="label-tag">Autodesk® · commercial</span></th>
+            <th><span class="label-name">Blender®</span><span class="label-tag">Free · open source</span></th>
+            <th class="kimi"><span class="label-name">Kimiyaa</span><span class="label-tag mono">Pilot in evaluation</span></th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td class="row-label">Per-seat licence cost</td>
-            <td class="col-maya"><span class="mono">$1,785</span> / year</td>
+            <td class="col-maya">Subscription <a href="pricing.html" style="color:var(--ink-muted); border-bottom:1px solid var(--border);">(see methodology)</a></td>
             <td class="col-blender"><span class="check-good">Free</span></td>
-            <td class="col-kimi"><strong>≤ 30% of Maya</strong></td>
+            <td class="col-kimi"><strong>Lower than commercial Maya® by design</strong> <a href="pricing.html" style="color:var(--accent); border-bottom:1px solid var(--accent-line);">→ pricing</a></td>
           </tr>
           <tr>
-            <td class="row-label">Year 1 of adoption</td>
-            <td class="col-maya">Full price</td>
+            <td class="row-label">Pilot terms</td>
+            <td class="col-maya">Standard subscription</td>
             <td class="col-blender">Free</td>
-            <td class="col-kimi"><strong>FREE</strong> · full access</td>
+            <td class="col-kimi"><strong>Structured pilot</strong> · terms by application</td>
           </tr>
           <tr>
-            <td class="row-label">Maya hotkeys & UX</td>
+            <td class="row-label">UX familiar to Maya®-trained artists</td>
             <td class="col-maya"><span class="check-good">✓ Native</span></td>
-            <td class="col-blender"><span class="check-warn">✗ Different</span></td>
-            <td class="col-kimi"><strong>✓ Identical</strong></td>
+            <td class="col-blender"><span class="check-warn">Different conventions</span></td>
+            <td class="col-kimi"><strong>Designed for familiarity</strong> <!-- REVERT-IF-PROVEN: "Identical hotkeys / shelves / outliner" --></td>
           </tr>
           <tr>
-            <td class="row-label">Opens <span class="mono">.ma</span> / <span class="mono">.mb</span> files</td>
+            <td class="row-label">Reading <span class="mono">.ma</span> / <span class="mono">.mb</span> files</td>
             <td class="col-maya"><span class="check-good">✓ Native</span></td>
             <td class="col-blender"><span class="check-warn">Import only, lossy</span></td>
-            <td class="col-kimi"><strong>✓ Native, round-trips</strong></td>
+            <td class="col-kimi"><strong>Compatibility-first design</strong> · scope published per pilot <!-- REVERT-IF-PROVEN: "Native read with round-trip preservation" --></td>
           </tr>
           <tr>
-            <td class="row-label">MEL / Python scripts</td>
+            <td class="row-label">MEL / Python script handling</td>
             <td class="col-maya"><span class="check-good">✓ Native</span></td>
-            <td class="col-blender"><span class="check-warn">✗ Rewrite required</span></td>
-            <td class="col-kimi"><strong>✓ Python preserved · MEL most patterns</strong></td>
+            <td class="col-blender"><span class="check-warn">Rewrite required</span></td>
+            <td class="col-kimi"><strong>Compatibility roadmap</strong> · evaluated against your scripts during pilot <!-- REVERT-IF-PROVEN: "Python preserved; MEL — most-used patterns supported" --></td>
           </tr>
           <tr>
-            <td class="row-label">Onboarding per artist</td>
-            <td class="col-maya">Existing</td>
-            <td class="col-blender"><span class="check-warn">2–3 months retraining</span></td>
-            <td class="col-kimi"><strong>0–2 days</strong></td>
+            <td class="row-label">Onboarding time per artist</td>
+            <td class="col-maya">Already trained</td>
+            <td class="col-blender"><span class="check-warn">Significant retraining</span></td>
+            <td class="col-kimi"><strong>Designed for fast onboarding</strong> · measured per-pilot <!-- REVERT-IF-PROVEN: "0–2 days, observed across pilots" --></td>
           </tr>
           <tr>
-            <td class="row-label">Pipeline rebuild</td>
-            <td class="col-maya">N/A</td>
-            <td class="col-blender"><span class="check-warn">Often required</span></td>
-            <td class="col-kimi"><strong>None</strong></td>
+            <td class="row-label">Pipeline integration</td>
+            <td class="col-maya">Established</td>
+            <td class="col-blender"><span class="check-warn">May require adjustments</span></td>
+            <td class="col-kimi"><strong>Standard exchange formats first</strong> · USD, FBX, Alembic</td>
           </tr>
           <tr>
-            <td class="row-label">Blender-deliverable output</td>
-            <td class="col-maya"><span class="check-warn">Export only</span></td>
+            <td class="row-label">Open-format output</td>
+            <td class="col-maya"><span class="check-warn">Export</span></td>
             <td class="col-blender"><span class="check-good">✓ Native</span></td>
-            <td class="col-kimi"><strong>✓ Native by architecture</strong></td>
+            <td class="col-kimi"><strong>First-class</strong></td>
           </tr>
           <tr>
-            <td class="row-label">AI features</td>
-            <td class="col-maya">Cloud (Flow Studio)</td>
+            <td class="row-label">Generative AI features</td>
+            <td class="col-maya">Cloud-based</td>
             <td class="col-blender">Plugin ecosystem</td>
-            <td class="col-kimi"><strong>Optional · local / on-prem</strong></td>
+            <td class="col-kimi"><strong>Optional · local / on-prem deployment available</strong></td>
           </tr>
           <tr>
-            <td class="row-label">Client IP stays in studio</td>
-            <td class="col-maya"><span class="check-warn">Cloud AI = no</span></td>
-            <td class="col-blender"><span class="check-good">Yes (no AI default)</span></td>
-            <td class="col-kimi"><strong>✓ Yes · air-gappable</strong></td>
+            <td class="row-label">Client IP confidentiality</td>
+            <td class="col-maya"><span class="check-warn">Cloud AI = uploads</span></td>
+            <td class="col-blender"><span class="check-good">No default cloud</span></td>
+            <td class="col-kimi"><strong>Air-gappable deployment</strong> · client IP can stay on your network</td>
           </tr>
           <tr>
-            <td class="row-label">Annual price hike risk</td>
-            <td class="col-maya"><span class="check-warn">~15% regional, no notice</span></td>
+            <td class="row-label">Pricing predictability</td>
+            <td class="col-maya">Per published commercial terms</td>
             <td class="col-blender">Free</td>
-            <td class="col-kimi"><strong>Locked at signing</strong></td>
+            <td class="col-kimi"><strong>Locked at signing</strong> for the pilot term</td>
           </tr>
           <tr>
             <td class="row-label">Pilot support</td>
-            <td class="col-maya">Paid</td>
+            <td class="col-maya">Paid tiers</td>
             <td class="col-blender">Community</td>
-            <td class="col-kimi"><strong>High-touch · free Year 1</strong></td>
-          </tr>
-          <tr>
-            <td class="row-label">Long-term commitment</td>
-            <td class="col-maya">Renew or churn</td>
-            <td class="col-blender">N/A</td>
-            <td class="col-kimi"><strong>3–5 year partnership</strong></td>
+            <td class="col-kimi"><strong>High-touch · direct from our team</strong></td>
           </tr>
         </tbody>
       </table>
     </div>
     <div style="text-align: center; margin-top: 40px;">
-      <a href="#apply" class="btn btn-primary btn-lg">Apply for the Free Year →</a>
+      <a href="#apply" class="btn btn-primary btn-lg">Apply to pilot →</a>
     </div>
   </div>
 </section>
 
-<!-- SAVINGS CALCULATOR -->
-<section id="calculator">
-  <div class="container">
-    <div class="eyebrow">The savings, in your own ledger</div>
-    <h2>What does switching from Maya save your studio?</h2>
-    <p class="lead" style="max-width: 740px;">Drag the slider to your studio's seat count. The numbers are based on Maya commercial at $1,785/seat/year and Kimiyaa's published ≤30% post-Year-1 ceiling. Year 1 is free, so the first-year savings = your full Maya bill.</p>
-
-    <div class="calc-wrap">
-      <div class="calc-grid">
-        <div class="calc-input">
-          <label>Maya-trained artists at your studio</label>
-          <div class="calc-seats"><span id="seats-display">50</span><small>seats</small></div>
-          <input type="range" min="5" max="300" value="50" step="5" class="slider" id="seats-slider" />
-          <div style="display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-dim);">
-            <span>5</span><span>50</span><span>150</span><span>300</span>
-          </div>
-        </div>
-        <div class="calc-output">
-          <div class="calc-cell">
-            <div class="calc-cell-label">Your annual Maya bill</div>
-            <div class="calc-cell-value mono" id="maya-cost">$89,250</div>
-            <div class="calc-cell-note">at $1,785/seat — before any regional hike</div>
-          </div>
-          <div class="calc-cell highlight">
-            <div class="calc-cell-label">Kimiyaa post-Year-1</div>
-            <div class="calc-cell-value mono" id="kimi-cost">$26,775</div>
-            <div class="calc-cell-note">capped at 30% of Maya, locked at signing</div>
-          </div>
-          <div class="calc-savings">
-            <div>
-              <div class="calc-savings-label">Year 1 savings (free pilot) + 4 years at ≤30%</div>
-              <div style="color: var(--ink-dim); font-size: 12px; margin-top: 4px;">Compounded over a typical 5-year studio horizon</div>
-            </div>
-            <div class="calc-savings-num mono" id="five-yr">$339,150</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<!-- CALCULATOR REMOVED
+     A live calculator that produces specific dollar figures using a competitor's
+     published price was the single most-flagged element of the original page.
+     Per the suspension diagnostic, it has been replaced with a static, range-based
+     statement and a link to the pricing methodology page where any specific
+     numbers live alongside their citation date.
+     If you later want range-based illustrations, keep them descriptive (e.g.
+     "small / mid / large studio") rather than driven by a competitor's price. -->
+<section>
+  <div class="container container-narrow">
+    <div class="eyebrow">On the savings question</div>
+    <h2>Pricing methodology, not a live calculator.</h2>
+    <p class="lead">We've intentionally moved specific cost comparisons off this page. Quoting a competitor's licence price as a live, sliding figure is the kind of presentation that can mislead — even unintentionally — when published prices change region by region and term by term.</p>
+    <p style="margin-top:16px; color: var(--ink-muted);">Instead, our <a href="pricing.html" style="color:var(--accent); border-bottom:1px solid var(--accent-line);">pricing page</a> publishes our own pricing structure and explains, with sources and dates, how it relates to current commercial Maya® pricing. If your finance team wants to model your own scenario, that page gives you the inputs to do it cleanly in your own spreadsheet.</p>
     <div style="text-align: center; margin-top: 40px;">
-      <a href="#apply" class="btn btn-primary btn-lg">Lock In Year 1 Free →</a>
+      <a href="pricing.html" class="btn btn-ghost btn-lg">See pricing methodology →</a>
     </div>
   </div>
 </section>
 
-<!-- WHAT YOU KEEP -->
+<!-- "WHAT YOU KEEP" — softened
+     - Removed "round-trip back to Maya" (specific reversibility claim).
+     - "Run with minimal changes" softened to "evaluated against your scripts."
+     - Plugin support claim moved to "compatibility matrix published per pilot."
+     - REVERT-IF-PROVEN markers below show what to restore once a proof video
+       and a public compatibility matrix are live. -->
 <section class="comp">
   <div class="container">
-    <div class="eyebrow">What switching does not cost you</div>
-    <h2>Everything you actually like about Maya. Kept.</h2>
-    <p class="lead" style="max-width: 720px;">The reason most "Maya replacement" pitches fail is they ask you to give up everything that worked. We don't.</p>
+    <div class="eyebrow">Designed around your existing team</div>
+    <h2>What we've designed Kimiyaa not to disrupt.</h2>
+    <p class="lead" style="max-width: 720px;">A Maya®-style platform built for studios is only useful if it minimises disruption to the things you already have working. Our design priorities, in order:</p>
     <div class="keep-grid">
       <div class="keep-item">
         <div class="keep-icon">Workflow</div>
-        <div class="keep-title">Your hotkeys, shelves, and outliner.</div>
-        <div class="keep-desc">Identical. The artist's day-to-day muscle memory does not change. They open Kimiyaa and it looks like Maya.</div>
+        <div class="keep-title">Hotkey, shelf, and outliner familiarity.</div>
+        <div class="keep-desc">Designed so a Maya®-trained artist's day-to-day muscle memory transfers as much as possible. Specific parity is verified and reported during pilot. <!-- REVERT-IF-PROVEN: "Identical hotkeys, shelves, and outliner — Maya-trained artists are oriented in minutes." --></div>
       </div>
       <div class="keep-item">
         <div class="keep-icon">Files</div>
-        <div class="keep-title">Your <span class="mono">.ma</span> and <span class="mono">.mb</span> scenes.</div>
-        <div class="keep-desc">Open natively. References resolve. Asset libraries open as-is. Round-trip back to Maya if a freelancer needs them.</div>
+        <div class="keep-title"><span class="mono">.ma</span> and <span class="mono">.mb</span> compatibility.</div>
+        <div class="keep-desc">Reading existing scene files is a first-order design priority. Scope of compatibility for your specific files (references, asset libraries, complex rigs) is established up front during pilot, not promised in advance. <!-- REVERT-IF-PROVEN: "Open natively. References resolve. Asset libraries open as-is." --></div>
       </div>
       <div class="keep-item">
         <div class="keep-icon">Scripts</div>
-        <div class="keep-title">Your Python and MEL.</div>
-        <div class="keep-desc">Python tools and pipeline scripts run with minimal changes. MEL — the most-used patterns are supported.</div>
+        <div class="keep-title">Your Python and MEL footprint.</div>
+        <div class="keep-desc">During pilot intake we evaluate your scripts against the platform and tell you, honestly, what runs as-is, what needs adjustment, and what's on the roadmap. No hand-waved blanket promises. <!-- REVERT-IF-PROVEN: "Python tools and pipeline scripts run with minimal to no changes. MEL — the most-used patterns are supported." --></div>
       </div>
       <div class="keep-item">
         <div class="keep-icon">Plugins</div>
         <div class="keep-title">The plugins you actually rely on.</div>
-        <div class="keep-desc">Rigging and grooming first — Advanced Skeleton, mGear, Yeti prioritised. We publish a compatibility matrix, openly.</div>
+        <div class="keep-desc">Rigging and grooming priorities are published per pilot in a compatibility matrix you can review with your TDs before any commitment. Specific plugin support is named, not implied.</div>
       </div>
       <div class="keep-item">
         <div class="keep-icon">Pipeline</div>
-        <div class="keep-title">Your Houdini / Nuke / Substance / USD chain.</div>
-        <div class="keep-desc">Standard exchange formats are first-class. Your downstream pipeline doesn't notice the change upstream.</div>
+        <div class="keep-title">Your downstream toolchain.</div>
+        <div class="keep-desc">Standard exchange formats — USD, FBX, Alembic — are first-class. Houdini, Nuke, Substance, render-farm steps see standard data shapes from upstream.</div>
       </div>
       <div class="keep-item">
         <div class="keep-icon">Bench</div>
         <div class="keep-title">Your freelance bench.</div>
-        <div class="keep-desc">They keep working in Maya. They send you <span class="mono">.ma</span> files. You open them in Kimiyaa. Nothing changes for them.</div>
+        <div class="keep-desc">Your contractors keep working in whatever tool they prefer. The pilot is structured so existing freelance arrangements aren't a blocker.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- MIGRATION -->
+<!-- MIGRATION — softened
+     - "0–2 days, not 2–3 months" headline replaced with phased-pilot framing.
+     - Day 0 "TD nods slowly" demo bit softened until proof video exists.
+     - "Risk reversal: walk away" framing kept but reframed as standard pilot terms. -->
 <section id="switch" class="migration">
   <div class="container">
-    <div class="eyebrow">The migration</div>
-    <h2>Switch from Maya in 0–2 days, not 2–3 months.</h2>
-    <p class="lead" style="max-width: 720px;">Because Kimiyaa is Maya's UX on top of Blender's engine, "switching" is closer to installing software than learning it. Here's what an actual switch week looks like.</p>
+    <div class="eyebrow">How a pilot is structured</div>
+    <h2>Phased, evaluated, and reversible.</h2>
+    <p class="lead" style="max-width: 720px;">Switching production tooling is a risk decision before it's a creative one. A Kimiyaa pilot is structured so the risk is bounded and the off-ramp is real.</p>
     <div class="migration-grid">
       <ol class="migration-steps">
         <li>
-          <div class="migration-step-title">Install Kimiyaa<span class="migration-step-time">Day 0 · 1 hour</span></div>
-          <div class="migration-step-desc">Standard Windows / macOS / Linux installer. Connects to your studio's existing asset server, render farm, and version control. No new infrastructure.</div>
+          <div class="migration-step-title">Scoping<span class="migration-step-time">Week 0</span></div>
+          <div class="migration-step-desc">Before any installation, we walk through your scripts, plugins, and a representative scene with your TD. The output is a written compatibility note specific to your studio — what's expected to work, what isn't, what's on the roadmap. No surprises later.</div>
         </li>
         <li>
-          <div class="migration-step-title">Open a real scene<span class="migration-step-time">Day 0 · same hour</span></div>
-          <div class="migration-step-desc">Pick a current shot. Open the <span class="mono">.ma</span> file in Kimiyaa. Your rig appears. Your hotkeys work. Your scripts run. Your TD nods slowly.</div>
+          <div class="migration-step-title">Pilot setup<span class="migration-step-time">Week 1</span></div>
+          <div class="migration-step-desc">Standard installer for Windows / macOS / Linux. We work alongside your team to connect Kimiyaa to your asset server, render farm, and version control. Your existing Maya® licences continue to run alongside the pilot — nothing is taken away.</div>
         </li>
         <li>
-          <div class="migration-step-title">Run a real task<span class="migration-step-time">Day 1</span></div>
-          <div class="migration-step-desc">Block out an animation. Iterate a model. Bake a sim. The artist's productivity returns within hours — not weeks.</div>
+          <div class="migration-step-title">Real-task evaluation<span class="migration-step-time">Weeks 2–4</span></div>
+          <div class="migration-step-desc">A small set of artists run real tasks on a live shot — modelling, animation, sim, whatever your studio actually does. We observe, log issues openly, and fix or document each one. Productivity expectations are agreed in writing.</div>
         </li>
         <li>
-          <div class="migration-step-title">Roll to the team<span class="migration-step-time">Day 2 onward</span></div>
-          <div class="migration-step-desc">Pilot 5 seats on one project. Then 20. Then the team. Maya licences keep running in parallel for the duration of Year 1 — the worst-case is "no change."</div>
+          <div class="migration-step-title">Decision point<span class="migration-step-time">Month 2 onward</span></div>
+          <div class="migration-step-desc">By the end of the pilot, you have your own data — observed onboarding time, observed compatibility, observed throughput — to decide whether and how to scale. Not our marketing material, your own measurements.</div>
         </li>
       </ol>
       <aside class="migration-aside">
         <h3>What about our running projects?</h3>
-        <p>Don't move them. <strong>Pilot Kimiyaa on the next project</strong>, while existing Maya licences run out their term. New work starts saving from week one. Old work finishes on the toolchain it started on.</p>
-        <p>By the time your Maya renewal arrives, you have a quantified case study from your own studio — and a clean exit option.</p>
-        <p style="margin-top: 24px;"><strong style="color: var(--accent);">Risk reversal:</strong> If Kimiyaa doesn't earn the seat by month 12, you walk away. You haven't paid us. Your Maya licences kept running. The pilot is structured so the worst-case is "no change."</p>
+        <p>You don't move them. <strong>Pilot Kimiyaa on a single discrete project</strong>, while existing licences run their term. The downside case is bounded: you've spent staff time on the evaluation, but no project was disrupted and no commitments were locked in.</p>
+        <p>The pilot ends with your own studio's data on the toolchain. Either it earns the seat for your next slate of work, or it doesn't — and you've kept your existing toolchain running the entire time.</p>
+        <p style="margin-top: 24px;"><strong style="color: var(--accent);">Pilot terms:</strong> structured commercially per studio. We don't post pilot terms publicly because they vary with studio size and scope. Apply and we'll send you our standard terms before any commitment.</p>
       </aside>
     </div>
   </div>
 </section>
 
-<!-- CONTEXT / PROOF -->
+<!-- CONTEXT — softened
+     - "Netflix Animation Studios joined the Blender Development Fund" reference removed.
+       Invoking a third-party brand to imply market momentum is exactly the pattern
+       the suspension flagged (sub-policy 1).
+     - "Autodesk laid off ~1,000 staff" claim removed (negative, unsubstantiated).
+     - "36% YoY AI growth" stat removed (uncited).
+     - "Year 1 free, no card, no commitment, no risk" trust-strip removed.
+       That copy pattern matches phishing-style affiliate offers and was a major trigger.
+     - Replaced with a sober "what to expect from a pilot" block. -->
 <section>
   <div class="container">
-    <div class="eyebrow">The market is moving</div>
-    <h2>You're not the first studio asking these questions in 2026.</h2>
+    <div class="eyebrow">What a pilot looks like, in practice</div>
+    <h2>Bounded scope. Honest reporting. A real off-ramp.</h2>
     <div class="context-row">
       <div class="context-cell">
-        <div class="context-time">January 2026</div>
-        <div class="context-text"><strong>Netflix Animation Studios joined the Blender Development Fund as Corporate Patron</strong> — the first major studio to do so. Studios bidding on Netflix-adjacent work are increasingly asked, "do you have Blender talent?"</div>
+        <div class="context-time">Before you sign</div>
+        <div class="context-text"><strong>A scoping call and a written compatibility note.</strong> We look at what you actually use — scripts, plugins, scene complexity — and tell you in writing what we expect to work and what we don't. Before any commitment, before any installer.</div>
       </div>
       <div class="context-cell">
-        <div class="context-time">Last 12 months</div>
-        <div class="context-text"><strong>Autodesk laid off ~1,000 staff</strong> while pushing through ~15% regional price hikes without notice. Sentiment in the artist community is the worst it's been in a decade.</div>
+        <div class="context-time">During the pilot</div>
+        <div class="context-text"><strong>Your existing toolchain keeps running in parallel.</strong> A Kimiyaa pilot does not require you to switch off your current licences. Production work continues; evaluation work runs alongside.</div>
       </div>
       <div class="context-cell">
-        <div class="context-time">Now</div>
-        <div class="context-text"><strong>Generative AI in animation is growing 36% YoY</strong> — but most of it is cloud-only. Studios with NDA workloads need a different answer.</div>
+        <div class="context-time">If it doesn't fit</div>
+        <div class="context-text"><strong>You stop. We document why.</strong> Pilot terms include an explicit off-ramp. We'd rather have ten studios who run honest pilots and two who continue, than ten who feel locked into a tool they're not sure about.</div>
       </div>
     </div>
 
     <div class="risk-strip">
-      <h3>Year 1 free. No card. No commitment. No risk.</h3>
-      <p>We don't think you should pay to find out whether this works. Run a real project on Kimiyaa for a year, with our team beside yours. If it doesn't earn the seat, you walk away — Maya licences still running, no invoice from us.</p>
-      <div class="risk-badges">
-        <span>Year 1 free</span>
-        <span>No payment details required</span>
-        <span>Maya runs in parallel</span>
-        <span>Walk away anytime</span>
-      </div>
+      <h3>A note on the offer.</h3>
+      <p>We're not going to make pricing-and-terms claims on a marketing page that we wouldn't be able to substantiate to a regulator. Pilot terms are commercial — they vary by studio size and scope, and they're shared in writing during the application process. The <a href="pricing.html" style="color: var(--accent); border-bottom: 1px solid var(--accent-line);">pricing page</a> publishes our standard structure and methodology.</p>
     </div>
   </div>
 </section>
 
-<!-- FAQ -->
+<!-- FAQ — softened
+     - Removed "Autodesk's tax" phrasing.
+     - "Python — yes, run with minimal to no changes" softened to evaluation-based wording.
+     - Plugin list (mGear, Advanced Skeleton, Yeti, Arnold) generalised — naming
+       specific third-party plugins and asserting they are supported is itself
+       a borderline trademark/affiliation risk.
+     - "30% of Maya pricing" claim moved to /pricing with substantiation.
+     - "Free Year 1" hard claim in the "catch" answer softened. -->
 <section class="comp">
   <div class="container container-narrow">
-    <div class="eyebrow">Migration objections, handled</div>
-    <h2>The questions you'd ask before signing a pilot.</h2>
+    <div class="eyebrow">Pilot questions, answered</div>
+    <h2>The questions a TD or studio head will ask.</h2>
     <div class="faq-list">
       <details>
-        <summary>How is this different from just switching to Blender?</summary>
-        <p>Blender is excellent, free, and improving fast. But your artists aren't trained in it. Your scripts aren't in it. Your clients haven't migrated to it. The switching cost — 2–3 months per artist — is the actual reason most studios stay on Maya. Kimiyaa is the bridge: Maya's UX so artists are productive day one, Blender's engine underneath so output is Blender-native by architecture.</p>
+        <summary>How is this different from just adopting Blender®?</summary>
+        <p>Blender® is excellent, free, and improving. The cost most studios face when adopting it is artist retraining time, and the rewriting of Maya®-era scripts and rigs. Kimiyaa's design priority is to minimise that retraining and rewriting work for studios whose teams are already fluent in Maya®-style workflows. It is not a Blender® replacement and we don't position it as one — Blender® is a peer in the comparison above.</p>
       </details>
       <details>
         <summary>What if my pipeline breaks?</summary>
-        <p>It won't, because it doesn't have to change. Standard exchange formats (USD, FBX, Alembic) are first-class. <span class="mono">.ma</span>/<span class="mono">.mb</span> read natively. Your Houdini, Nuke, Substance, and render farm chain doesn't notice anything different upstream. If something specific to your pipeline doesn't translate, the pilot is structured to surface it in week 1, not month 12 — and Maya licences keep running in parallel as insurance.</p>
+        <p>The pilot is structured to surface that risk in week 1, not month 12 — which is why scoping happens before any installation. Standard exchange formats (USD, FBX, Alembic) are first-class, so most downstream Houdini / Nuke / Substance / render-farm steps see standard data. Where your specific pipeline has bespoke handoffs, those are evaluated up front and either confirmed working, scheduled, or declared out-of-scope before the pilot begins.</p>
       </details>
       <details>
-        <summary>Will my Maya scripts (MEL / Python) actually work?</summary>
-        <p>Python — yes, your existing tools and pipeline scripts run with minimal to no changes. MEL — the most-used patterns are supported; we publish a compatibility matrix to your team during the pilot so there are no surprises. If you have a specific MEL-heavy tool, send it on the application; we'll tell you honestly before you start.</p>
+        <summary>Will my Maya® scripts (MEL / Python) actually work?</summary>
+        <p>The honest answer is: it depends on which scripts. During pilot scoping, we evaluate your Python and MEL footprint against Kimiyaa and produce a written note — what runs as-is, what needs adjustment, what's on the roadmap. We'd rather you read that note before you commit time to evaluation than rely on a blanket marketing claim.</p>
       </details>
       <details>
-        <summary>What about plugins like mGear, Advanced Skeleton, Yeti, Arnold?</summary>
-        <p>We've prioritised the rigging and grooming plugins our pilot studios use most. On the application, list your top 5 most-used plugins. We'll respond with which are supported today and which are on the next quarter's roadmap — before you commit to anything.</p>
+        <summary>What about the plugins my team relies on?</summary>
+        <p>On the application form, list your top five most-used plugins. We respond with which are supported today, which are scheduled, and which we won't be supporting. That answer comes before any commitment — not after. We don't make blanket plugin-compatibility claims because plugin compatibility depends on plugin version, OS, and pipeline integration, and we'd rather get it right per-studio.</p>
       </details>
       <details>
-        <summary>How long does a real switch actually take?</summary>
-        <p>An individual Maya artist is productive in 0–2 days — often within hours of installing. A studio rolling Kimiyaa across the team typically does so over 2–4 weeks, project-by-project, with Maya running in parallel until the rollout is complete. No "big-bang" cutover required.</p>
+        <summary>How long does an artist actually take to be productive?</summary>
+        <p>Onboarding time is something the pilot measures — we don't claim a fixed number on a marketing page. The platform is designed to minimise it for Maya®-trained artists, but the actual figure for your studio depends on your specific scenes, scripts, and workflow patterns. The pilot reports the observed number for your team.</p>
       </details>
       <details>
-        <summary>What happens to pricing after Year 1?</summary>
-        <p>Capped at 30% of equivalent Autodesk Maya pricing — committed contractually at signing, not a launch discount. We don't surprise-hike like Autodesk does. Studios that sign a multi-year pilot extension lock that ceiling for the full term.</p>
+        <summary>What's the pricing structure?</summary>
+        <p>Our standard structure and the methodology behind it are published on the <a href="pricing.html">pricing page</a>. Specific pilot terms are commercial and shared in writing during the application process. We don't post final-form pricing here because the pricing page is where it can sit alongside its sources and dates, and that's where regulators, journalists, and procurement teams expect to find it.</p>
       </details>
       <details>
         <summary>Can the AI run on-prem? Our client contracts forbid cloud uploads.</summary>
-        <p>Yes. The optional AI tools deploy on your own hardware, behind your firewall. Client IP never leaves your network. There's a cloud option if you prefer it; the choice is yours per project. This is one of the two reasons NDA-bound studios start pilots.</p>
+        <p>Yes. The optional generative-AI features have a local / on-prem deployment option, so client IP can stay on your network. There's a cloud option available if your contracts allow it; the choice is per-project. This is one of the more common reasons NDA-bound studios start a pilot with us.</p>
       </details>
       <details>
         <summary>What if it doesn't work for my studio?</summary>
-        <p>You walk away. You haven't paid us. Your Maya licences kept running the whole time. The pilot is structured so the worst-case is "no change." That's the whole point of Year 1 being free.</p>
-      </details>
-      <details>
-        <summary>How is this different from Autodesk Flow Studio (Wonder Dynamics)?</summary>
-        <p>Flow Studio is an AI motion-and-character tool inside the Autodesk ecosystem — you're still paying Autodesk's tax to use it. Kimiyaa is a full DCC alternative. Different category, different problem.</p>
+        <p>The pilot is structured so the off-ramp is real and the existing toolchain keeps running throughout. Specific exit terms — including any commercial implications — are written into the pilot agreement, not promised on a landing page. Read the terms before you sign; the only commitment we'd ask you to make on this page is to start the conversation.</p>
       </details>
       <details>
         <summary>What's the catch?</summary>
-        <p>We're a young company. We don't have 30 years of edge cases in our QA. That's why Year 1 is free, support is high-touch, and your feedback shapes the product weekly. If a workflow doesn't translate cleanly, we want to know in week 1, not month 12.</p>
+        <p>The catch is the catch every young software company has: we don't have a decade of edge-cases worked through our QA. That's why scoping is rigorous, the pilot is bounded, and the scope is written down before installation. If something specific to your studio doesn't translate, we want to know in week one — not month twelve.</p>
       </details>
     </div>
   </div>
 </section>
 
-<!-- FINAL CTA + INLINE FORM -->
+<!-- APPLICATION FORM — softened
+     - "Apply for the Free Year" CTA replaced with "Apply to pilot."
+     - "No card. No commitment. Walk away anytime." trust-strip removed.
+     - Form is already minimal (studio, role, size, email) — kept as-is.
+     - founder@kimiyaa.ai contact preserved (real direct line is good for trust). -->
 <section id="apply" class="cta-section">
   <div class="container container-narrow">
     <div class="cta-card">
-      <div class="eyebrow">Apply for the pilot</div>
-      <h2>Switch from Maya. Keep everything that actually works.</h2>
-      <p class="lead">A free year of full production access. Real shots, real artists, real deadlines. If it doesn't earn the seat, you walk away. Maya runs in parallel the whole time.</p>
+      <div class="eyebrow">Apply to pilot</div>
+      <h2>Start with a scoping conversation.</h2>
+      <p class="lead">Send us the basics about your studio. We'll respond from a real person on the team — usually within 48 hours — with our standard pilot terms and a scoping call slot. No commitment from this form; it's a conversation starter.</p>
 
       <form class="inline-form" id="pilot-form" onsubmit="handleSubmit(event)">
         <input class="form-input" type="text" name="studio" required placeholder="Studio name" />
@@ -888,15 +898,14 @@
         </div>
         <input class="form-input" type="email" name="email" required placeholder="Work email" />
         <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;" />
-        <button type="submit" class="btn btn-primary btn-lg btn-block">Apply for the Free Year →</button>
-        <p class="form-fineprint">No card. No commitment. We respond within 48 hours from a human, not a queue.</p>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Apply to pilot →</button>
+        <p class="form-fineprint">By submitting this form you consent to us contacting you about a pilot evaluation. See our <a href="privacy.html" style="color:var(--ink); border-bottom:1px solid var(--border);">privacy notice</a> for how we handle the information you share.</p>
       </form>
 
       <div class="cta-fineprint">
-        <span>Year 1 free</span>
-        <span>≤30% of Maya thereafter</span>
-        <span>0–2 days to switch</span>
-        <span>Walk away anytime</span>
+        <span>Scoping before installation</span>
+        <span>Standard pilot terms shared in writing</span>
+        <span>Existing toolchain runs in parallel</span>
       </div>
 
       <div style="margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--border-soft); font-size: 14px; color: var(--ink-dim);">
@@ -906,72 +915,76 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- WHO WE ARE — required block per suspension diagnostic Phase 1 fix #11
+     IMPORTANT: All [BRACKETED] values MUST be filled in before publishing.
+     The appeal will fail if a Google reviewer sees [FOUNDER NAME] on the live site.
+     -->
+<section style="padding: 64px 0; background: var(--bg-elev);">
+  <div class="container container-narrow">
+    <div class="eyebrow">Who we are</div>
+    <h2 style="font-size: 28px;">Kimiyaa is built by [FOUNDER NAME].</h2>
+    <p style="margin-top: 20px; color: var(--ink-muted); font-size: 16px; line-height: 1.7;">
+      Kimiyaa is developed by <strong style="color: var(--ink);">[LEGAL ENTITY NAME]</strong>, registered in <strong style="color: var(--ink);">[COUNTRY OF INCORPORATION]</strong> under registration number <strong style="color: var(--ink);">[REGISTRATION NUMBER]</strong>. Our registered office is at <strong style="color: var(--ink);">[REGISTERED OFFICE ADDRESS]</strong>.
+    </p>
+    <p style="margin-top: 16px; color: var(--ink-muted); font-size: 16px; line-height: 1.7;">
+      Founder: <strong style="color: var(--ink);">[FOUNDER NAME]</strong>, <strong style="color: var(--ink);">[1–2 LINE BIO]</strong>. <a href="[FOUNDER LINKEDIN URL]" style="color: var(--accent); border-bottom: 1px solid var(--accent-line);">LinkedIn →</a>
+    </p>
+    <p style="margin-top: 24px; font-size: 14px; color: var(--ink-dim);">
+      Kimiyaa is independent. We are not affiliated with, endorsed by, or sponsored by Autodesk®, Inc. or the Blender® Foundation. References to those products on this site are made for purposes of comparison and compatibility context only.
+    </p>
+    <p style="margin-top: 16px;"><a href="about.html" class="btn btn-ghost" style="font-size: 14px; padding: 10px 18px;">Read more about the team →</a></p>
+  </div>
+</section>
+
+<!-- FOOTER — rebuilt
+     - All previously-placeholder links now point to real pages.
+     - Trademark disclosure block uses the language recommended by the diagnostic.
+     - Copyright line names the legal entity.
+     - Sticky CTA dollar-figure removed (calculator is gone). -->
+<footer style="padding: 56px 0 40px; background: var(--bg-elev-2); border-top: 1px solid var(--border);">
   <div class="container">
-    <div class="footer-bottom">
-      <div class="logo">kimiyaa<span>.ai</span> · Maya's workflow. Built on Blender.</div>
-      <div>© 2026 Kimiyaa.ai · <a href="#" style="color: var(--ink-muted);">Privacy</a> · <a href="#" style="color: var(--ink-muted);">Terms</a></div>
-      <a href="#apply" class="btn btn-ghost" style="padding: 10px 18px; font-size: 14px;">Apply for the Free Year →</a>
+    <div style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+      <div>
+        <div class="logo" style="margin-bottom: 12px;">kimiyaa<span>.ai</span></div>
+        <p style="color: var(--ink-muted); font-size: 14px; line-height: 1.6; max-width: 320px;">A 3D platform designed for studios with Maya®-trained teams. Independent. Built by [LEGAL ENTITY NAME].</p>
+        <p style="color: var(--ink-dim); font-size: 13px; margin-top: 16px;">[REGISTERED OFFICE ADDRESS]</p>
+      </div>
+      <div>
+        <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace;">Product</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+          <li><a href="#compare" style="color: var(--ink-muted);">Comparison</a></li>
+          <li><a href="pricing.html" style="color: var(--ink-muted);">Pricing</a></li>
+          <li><a href="#apply" style="color: var(--ink-muted);">Apply to pilot</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace;">Company</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+          <li><a href="about.html" style="color: var(--ink-muted);">About &amp; team</a></li>
+          <li><a href="mailto:hello@kimiyaa.ai" style="color: var(--ink-muted);">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace;">Legal</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px;">
+          <li><a href="privacy.html" style="color: var(--ink-muted);">Privacy</a></li>
+          <li><a href="terms.html" style="color: var(--ink-muted);">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="border-top: 1px solid var(--border-soft); padding-top: 24px; font-size: 13px; color: var(--ink-dim); line-height: 1.7;">
+      <p style="margin-bottom: 12px;">
+        <strong style="color: var(--ink-muted);">Trademark notice:</strong>
+        Maya® and Autodesk® are registered trademarks of Autodesk, Inc. Blender® is a registered trademark of the Blender Foundation. Kimiyaa.ai is not affiliated with, endorsed by, or sponsored by Autodesk, Inc. or the Blender Foundation. References to these products are made for purposes of compatibility and comparison only.
+      </p>
+      <p>© 2026 [LEGAL ENTITY NAME]. All rights reserved. Registered in [COUNTRY] · [REGISTRATION NUMBER]. Contact: <a href="mailto:hello@kimiyaa.ai" style="color: var(--ink-muted); border-bottom: 1px solid var(--border);">hello@kimiyaa.ai</a></p>
     </div>
   </div>
 </footer>
 
-<!-- STICKY CTA -->
-<div class="sticky-cta" id="sticky-cta">
-  <div class="sticky-cta-text">Save up to <strong>$62,475/yr</strong> on a 50-artist studio · Year 1 free</div>
-  <a href="#apply" class="btn btn-primary">Apply →</a>
-</div>
-
 <script>
-  // Sticky CTA
-  const stickyCta = document.getElementById('sticky-cta');
-  const applySection = document.getElementById('apply');
-  function onScroll() {
-    const scrolled = window.scrollY;
-    const triggerAt = window.innerHeight * 0.5;
-    const formRect = applySection.getBoundingClientRect();
-    const formInView = formRect.top < window.innerHeight * 0.7 && formRect.bottom > 0;
-    if (scrolled > triggerAt && !formInView) stickyCta.classList.add('show');
-    else stickyCta.classList.remove('show');
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Savings calculator
-  const slider = document.getElementById('seats-slider');
-  const seatsDisplay = document.getElementById('seats-display');
-  const mayaCost = document.getElementById('maya-cost');
-  const kimiCost = document.getElementById('kimi-cost');
-  const fiveYr = document.getElementById('five-yr');
-  const stickyText = document.querySelector('.sticky-cta-text strong');
-
-  const MAYA_PRICE = 1785;
-  const KIMI_RATIO = 0.30;
-
-  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
-
-  function updateCalc() {
-    const seats = parseInt(slider.value);
-    const maya = seats * MAYA_PRICE;
-    const kimi = Math.round(maya * KIMI_RATIO);
-    const yr1Savings = maya;                       // Year 1 free
-    const yr2to5Savings = (maya - kimi) * 4;       // 4 years at 70% off
-    const fiveYearTotal = yr1Savings + yr2to5Savings;
-    const annualSavings = maya - kimi;
-
-    seatsDisplay.textContent = seats;
-    mayaCost.textContent = fmt(maya);
-    kimiCost.textContent = fmt(kimi);
-    fiveYr.textContent = fmt(fiveYearTotal);
-
-    // Update sticky CTA dynamically
-    if (stickyText) stickyText.textContent = fmt(annualSavings) + '/yr';
-  }
-  slider.addEventListener('input', updateCalc);
-  updateCalc();
-
-  // Form handler
+  // Form handler: same Cloudflare Worker flow as the current landing page.
   async function handleSubmit(e) {
     e.preventDefault();
 
@@ -1006,7 +1019,7 @@
 
       if (typeof gtag === 'function') {
         gtag('event', 'pilot_application_submitted', {
-          page: 'landing',
+          page: 'home',
           studio_size: payload.size,
           role: payload.role,
         });
@@ -1033,15 +1046,6 @@
       form.appendChild(errorBox);
     }
     errorBox.textContent = message;
-  }
-
-  function escapeHtml(value) {
-    return String(value || '')
-      .replaceAll('&', '&amp;')
-      .replaceAll('<', '&lt;')
-      .replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;')
-      .replaceAll("'", '&#039;');
   }
 </script>
 

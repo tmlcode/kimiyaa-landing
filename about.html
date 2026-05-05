@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>About — Kimiyaa.ai</title>
+<meta name="description" content="Kimiyaa is an independent 3D platform built for studios with Maya®-trained teams. About the company, the founder, and how to reach us." />
+<link rel="canonical" href="https://landing.kimiyaa.ai/about.html" />
+<meta name="robots" content="index,follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0b0c0d; --bg-elev: #131518; --bg-elev-2: #1a1d22;
+    --border: #25282e; --border-soft: #1c1f24;
+    --ink: #ededec; --ink-muted: #9a9da4; --ink-dim: #6b6e76;
+    --accent: #d4a04f; --accent-soft: rgba(212, 160, 79, 0.12); --accent-line: rgba(212, 160, 79, 0.3);
+    --warn: #c87264; --warn-soft: rgba(200, 114, 100, 0.1);
+    --maxw: 1200px; --maxw-doc: 760px; --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line); }
+  a:hover { border-bottom-color: var(--accent); }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(11, 12, 13, 0.85); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--border-soft); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--maxw); margin: 0 auto; }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; border: none; color: var(--ink); }
+  .logo span { color: var(--accent); }
+  .nav-actions { display: flex; align-items: center; gap: 8px; }
+  .nav-link { color: var(--ink-muted); font-size: 14px; padding: 8px 12px; border: none; }
+  .nav-link:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit; font-size: 15px; font-weight: 600; padding: 10px 18px; border-radius: var(--radius); border: 1px solid var(--accent); cursor: pointer; background: var(--accent); color: #1a1408; }
+  .btn:hover { background: #e0ad5d; border-color: #e0ad5d; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--ink-muted); }
+  .btn-lg { padding: 14px 24px; font-size: 16px; }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .container-doc { max-width: var(--maxw-doc); margin: 0 auto; padding: 0 24px; }
+  .doc-header { padding: 80px 0 24px; }
+  .eyebrow { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  h1 { font-size: 44px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.1; margin-bottom: 16px; }
+  h1 .accent { color: var(--accent); }
+  .lead { font-size: 19px; color: var(--ink-muted); max-width: 720px; line-height: 1.55; }
+
+  section { padding: 60px 0; border-top: 1px solid var(--border-soft); }
+  section:first-of-type { border-top: none; padding-top: 32px; }
+  section h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.018em; margin-bottom: 14px; }
+  section p { color: var(--ink-muted); margin-bottom: 16px; line-height: 1.7; }
+  section strong { color: var(--ink); font-weight: 600; }
+
+  .kv-grid { display: grid; grid-template-columns: 200px 1fr; gap: 16px 32px; margin-top: 24px; padding: 28px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); }
+  .kv-grid dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); font-family: 'JetBrains Mono', monospace; padding-top: 4px; }
+  .kv-grid dd { color: var(--ink); font-size: 15px; }
+
+  .placeholder-banner { background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 16px 22px; border-radius: var(--radius); margin: 32px 0; font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+  .placeholder-banner strong { color: var(--accent); }
+
+  .person-card { display: grid; grid-template-columns: 120px 1fr; gap: 24px; padding: 28px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-elev); margin-top: 16px; }
+  .person-avatar { width: 120px; height: 120px; border-radius: 50%; background: var(--bg-elev-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--ink-dim); font-size: 12px; font-family: 'JetBrains Mono', monospace; text-align: center; padding: 12px; }
+  .person-name { font-size: 20px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+  .person-role { font-size: 13px; color: var(--accent); font-family: 'JetBrains Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .person-bio { color: var(--ink-muted); font-size: 14px; line-height: 1.65; }
+  .person-links { margin-top: 12px; display: flex; gap: 16px; font-size: 13px; }
+
+  .cta-strip { padding: 48px 32px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; margin-top: 16px; }
+  .cta-strip h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+
+  footer { padding: 56px 0 40px; background: var(--bg-elev-2); border-top: 1px solid var(--border); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .foot-grid h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .foot-grid ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  .foot-grid a { color: var(--ink-muted); border: none; }
+  .foot-grid a:hover { color: var(--ink); }
+  .foot-bottom { border-top: 1px solid var(--border-soft); padding-top: 24px; font-size: 13px; color: var(--ink-dim); line-height: 1.7; }
+  .foot-bottom a { color: var(--ink-muted); border: none; border-bottom: 1px solid var(--border); }
+
+  @media (max-width: 720px) {
+    h1 { font-size: 32px; }
+    .kv-grid { grid-template-columns: 1fr; }
+    .person-card { grid-template-columns: 1fr; }
+    .person-avatar { width: 80px; height: 80px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">kimiyaa<span>.ai</span></a>
+    <div class="nav-actions">
+      <a href="about.html" class="nav-link" style="color: var(--ink);">About</a>
+      <a href="index.html#compare" class="nav-link">Compare</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="index.html#apply" class="btn">Apply to pilot →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container-doc doc-header">
+    <div class="eyebrow">About Kimiyaa</div>
+    <h1>An independent 3D platform, built for studios with <span class="accent">Maya®-trained teams.</span></h1>
+    <p class="lead">Kimiyaa is a small, independent company. We're building a platform that takes the workflow studios are already fluent in and reduces the cost and friction of running it at scale.</p>
+  </div>
+
+  <div class="container-doc">
+
+    <div class="placeholder-banner">
+      <strong>BEFORE PUBLISHING:</strong> All <span class="mono">[BRACKETED]</span> values below — founder name, bio, photo, LinkedIn, legal entity, registration number, address, founding date — must be filled in with real values. The Google Ads appeal will fail if a reviewer lands on this page and sees placeholder text. If a placeholder cannot yet be filled in (for example, the team page is still being written), remove the corresponding section rather than ship it as a placeholder.
+    </div>
+
+    <section>
+      <h2>What we're building, and why</h2>
+      <p>The 3D pipelines used by mid-size studios — typically <strong>50 to 300 seats</strong>, often serving Western clients from outsourcing markets — have a recurring tension. The toolset their artists are trained on is mature and capable, but its commercial structure has shifted toward annual subscriptions whose pricing increasingly outpaces studio billing realities. Open-source alternatives are excellent, but they ask for a different kind of cost: months of artist retraining, scripts rewritten, pipeline re-plumbed.</p>
+      <p>Kimiyaa is an attempt at a third option. <strong>A platform that respects the workflow studios are already fluent in</strong> — the hotkeys, the file formats, the script style, the plugin patterns — while running on a foundation that doesn't carry the same commercial overhead. Our priority order is: compatibility for trained artists first, pricing predictability second, on-prem AI options for NDA-bound studios third.</p>
+      <p>We're not a replacement for the major incumbents in the abstract. We're a specific bet on a specific kind of studio, with a specific set of constraints, doing a specific kind of work. If your studio fits that picture, we want to scope a pilot with you.</p>
+    </section>
+
+    <section>
+      <h2>Who is behind it</h2>
+      <div class="person-card">
+        <div class="person-avatar">[FOUNDER PHOTO — square, 400×400 min]</div>
+        <div>
+          <div class="person-name">[FOUNDER NAME]</div>
+          <div class="person-role">Founder</div>
+          <div class="person-bio">[2–4 sentence founder bio. Mention prior experience in 3D / animation / studio software / VFX pipelines, year founded Kimiyaa, why this problem in particular. Be specific. A bio that says "passionate about 3D" reads as filler; one that says "built the lookdev pipeline at &lt;studio&gt; for the &lt;project&gt; release" reads as a real person.]</div>
+          <div class="person-links">
+            <a href="[FOUNDER LINKEDIN URL]">LinkedIn →</a>
+            <a href="mailto:founder@kimiyaa.ai">Email →</a>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin-top: 20px; color: var(--ink-dim); font-size: 14px;">
+        [If you have additional team members listed publicly, duplicate the <span class="mono">.person-card</span> block above. If you are currently a solo founder, that's fine — just say so. "Currently a one-person company; hiring our first engineer" is more credible than a fabricated team.]
+      </p>
+    </section>
+
+    <section>
+      <h2>Company details</h2>
+      <p>Kimiyaa is operated by:</p>
+      <dl class="kv-grid">
+        <dt>Legal entity</dt>
+        <dd>[LEGAL ENTITY NAME]</dd>
+
+        <dt>Registration</dt>
+        <dd>[REGISTRATION NUMBER] — incorporated in [COUNTRY], [DATE OF INCORPORATION]</dd>
+
+        <dt>Tax ID</dt>
+        <dd>[GSTIN if India, or VAT/EIN equivalent for jurisdiction]</dd>
+
+        <dt>Registered office</dt>
+        <dd>[REGISTERED OFFICE ADDRESS, including postcode and country]</dd>
+
+        <dt>Operating address</dt>
+        <dd>[OPERATING ADDRESS if different from registered]</dd>
+
+        <dt>General contact</dt>
+        <dd><a href="mailto:hello@kimiyaa.ai">hello@kimiyaa.ai</a></dd>
+
+        <dt>Founder contact</dt>
+        <dd><a href="mailto:founder@kimiyaa.ai">founder@kimiyaa.ai</a></dd>
+
+        <dt>Press / media</dt>
+        <dd><a href="mailto:press@kimiyaa.ai">press@kimiyaa.ai</a></dd>
+      </dl>
+    </section>
+
+    <section>
+      <h2>Independence and affiliations</h2>
+      <p>Kimiyaa is an independent company. <strong>We are not affiliated with, endorsed by, or sponsored by Autodesk®, Inc. or the Blender® Foundation</strong>, and we do not represent ourselves as such. References to those products on this site are made for purposes of comparison and compatibility context only — Maya® and Autodesk® are registered trademarks of Autodesk, Inc.; Blender® is a registered trademark of the Blender Foundation.</p>
+      <p>The Kimiyaa platform incorporates open-source components, each governed by its own licence. A complete attribution / NOTICE file is published at <a href="/attributions">kimiyaa.ai/attributions</a> [PUBLISH THIS FILE]. Where any component imposes obligations on us as a downstream user — for example, source-availability obligations under copyleft licences — we comply with those obligations, and the relevant materials are linked from that page.</p>
+    </section>
+
+    <section>
+      <h2>How to talk to us</h2>
+      <div class="cta-strip">
+        <h3>The fastest way to start a conversation is the application form.</h3>
+        <p style="max-width: 540px; margin: 0 auto 24px;">It tells us enough about your studio for us to send useful materials in the reply — typically within 48 hours, from a real person on the team.</p>
+        <a href="index.html#apply" class="btn btn-lg">Apply to pilot →</a>
+        <p style="margin-top: 24px; font-size: 14px;">
+          Or write directly: <a href="mailto:founder@kimiyaa.ai">founder@kimiyaa.ai</a>
+        </p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer style="margin-top: 60px;">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom: 12px; display:inline-block;">kimiyaa<span>.ai</span></a>
+        <p style="color: var(--ink-muted); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 8px;">A 3D platform designed for studios with Maya®-trained teams. Independent. Built by [LEGAL ENTITY NAME].</p>
+        <p style="color: var(--ink-dim); font-size: 13px; margin-top: 16px;">[REGISTERED OFFICE ADDRESS]</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#compare">Comparison</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#apply">Apply to pilot</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; team</a></li>
+          <li><a href="mailto:hello@kimiyaa.ai">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p style="margin-bottom: 12px;"><strong style="color: var(--ink-muted);">Trademark notice:</strong> Maya® and Autodesk® are registered trademarks of Autodesk, Inc. Blender® is a registered trademark of the Blender Foundation. Kimiyaa.ai is not affiliated with, endorsed by, or sponsored by Autodesk, Inc. or the Blender Foundation. References to these products are made for purposes of compatibility and comparison only.</p>
+      <p>© 2026 [LEGAL ENTITY NAME]. All rights reserved. Registered in [COUNTRY] · [REGISTRATION NUMBER]. Contact: <a href="mailto:hello@kimiyaa.ai">hello@kimiyaa.ai</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

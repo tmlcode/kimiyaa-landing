@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Pricing — Kimiyaa.ai</title>
+<meta name="description" content="Kimiyaa pricing structure, with methodology and source citations for any comparisons to commercial Maya® pricing." />
+<link rel="canonical" href="https://landing.kimiyaa.ai/pricing.html" />
+<meta name="robots" content="index,follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0b0c0d; --bg-elev: #131518; --bg-elev-2: #1a1d22;
+    --border: #25282e; --border-soft: #1c1f24;
+    --ink: #ededec; --ink-muted: #9a9da4; --ink-dim: #6b6e76;
+    --accent: #d4a04f; --accent-soft: rgba(212, 160, 79, 0.12); --accent-line: rgba(212, 160, 79, 0.3);
+    --warn: #c87264; --warn-soft: rgba(200, 114, 100, 0.1);
+    --maxw: 1200px; --maxw-doc: 820px; --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line); }
+  a:hover { border-bottom-color: var(--accent); }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(11, 12, 13, 0.85); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--border-soft); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--maxw); margin: 0 auto; }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; border: none; color: var(--ink); }
+  .logo span { color: var(--accent); }
+  .nav-actions { display: flex; align-items: center; gap: 8px; }
+  .nav-link { color: var(--ink-muted); font-size: 14px; padding: 8px 12px; border: none; }
+  .nav-link:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit; font-size: 15px; font-weight: 600; padding: 10px 18px; border-radius: var(--radius); border: 1px solid var(--accent); cursor: pointer; background: var(--accent); color: #1a1408; }
+  .btn:hover { background: #e0ad5d; border-color: #e0ad5d; }
+  .btn-lg { padding: 14px 24px; font-size: 16px; }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .container-doc { max-width: var(--maxw-doc); margin: 0 auto; padding: 0 24px; }
+  .doc-header { padding: 80px 0 24px; }
+  .eyebrow { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  h1 { font-size: 44px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.1; margin-bottom: 16px; }
+  h1 .accent { color: var(--accent); }
+  .lead { font-size: 19px; color: var(--ink-muted); max-width: 720px; line-height: 1.55; }
+
+  section { padding: 56px 0; border-top: 1px solid var(--border-soft); }
+  section:first-of-type { border-top: none; padding-top: 24px; }
+  section h2 { font-size: 26px; font-weight: 600; letter-spacing: -0.018em; margin-bottom: 16px; }
+  section h3 { font-size: 17px; font-weight: 600; margin-top: 28px; margin-bottom: 10px; }
+  section p { color: var(--ink-muted); margin-bottom: 16px; line-height: 1.7; }
+  section ul, section ol { color: var(--ink-muted); margin-left: 22px; margin-bottom: 16px; }
+  section li { margin-bottom: 10px; }
+  section strong { color: var(--ink); font-weight: 600; }
+
+  .placeholder-banner { background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 16px 22px; border-radius: var(--radius); margin: 24px 0 32px; font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+  .placeholder-banner strong { color: var(--accent); }
+
+  .pricing-card { padding: 32px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); margin-top: 16px; }
+  .pricing-card.highlight { border: 1px solid var(--accent); background: linear-gradient(180deg, var(--accent-soft) 0%, var(--bg-elev) 100%); }
+  .pc-tag { font-size: 11px; font-family: 'JetBrains Mono', monospace; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
+  .pc-name { font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .pc-desc { color: var(--ink-muted); font-size: 14px; margin-bottom: 16px; }
+  .pc-price { font-family: 'JetBrains Mono', monospace; font-size: 28px; color: var(--ink); margin-bottom: 8px; }
+  .pc-price small { font-size: 14px; color: var(--ink-dim); margin-left: 6px; }
+
+  .methodology-box { padding: 28px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); }
+  .methodology-box h3 { margin-top: 0; }
+  .methodology-box .src { display: block; padding: 12px 16px; background: var(--bg); border: 1px solid var(--border-soft); border-radius: var(--radius); margin: 8px 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-muted); word-break: break-all; }
+
+  table.examples { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  table.examples th, table.examples td { padding: 14px 16px; border-bottom: 1px solid var(--border-soft); text-align: left; font-size: 14px; }
+  table.examples th { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); border-bottom: 1px solid var(--border); }
+  table.examples td { color: var(--ink); }
+  table.examples td.muted { color: var(--ink-muted); }
+  table.examples .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .cta-strip { padding: 40px 32px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); text-align: center; }
+  .cta-strip h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
+
+  footer { padding: 56px 0 40px; background: var(--bg-elev-2); border-top: 1px solid var(--border); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .foot-grid h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .foot-grid ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  .foot-grid a { color: var(--ink-muted); border: none; }
+  .foot-grid a:hover { color: var(--ink); }
+  .foot-bottom { border-top: 1px solid var(--border-soft); padding-top: 24px; font-size: 13px; color: var(--ink-dim); line-height: 1.7; }
+  .foot-bottom a { color: var(--ink-muted); border: none; border-bottom: 1px solid var(--border); }
+
+  @media (max-width: 720px) {
+    h1 { font-size: 32px; }
+    .foot-grid { grid-template-columns: 1fr 1fr; }
+    table.examples { font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">kimiyaa<span>.ai</span></a>
+    <div class="nav-actions">
+      <a href="about.html" class="nav-link">About</a>
+      <a href="index.html#compare" class="nav-link">Compare</a>
+      <a href="pricing.html" class="nav-link" style="color: var(--ink);">Pricing</a>
+      <a href="index.html#apply" class="btn">Apply to pilot →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container-doc doc-header">
+    <div class="eyebrow">Pricing &amp; methodology</div>
+    <h1>Our pricing structure, with the <span class="accent">methodology</span> behind it.</h1>
+    <p class="lead">We've moved specific pricing claims off the marketing page and onto this page deliberately — this is where the structure can sit alongside its sources, citation dates, and the assumptions behind any comparison. Use it as your spreadsheet input, not as a quote.</p>
+  </div>
+
+  <div class="container-doc">
+
+    <div class="placeholder-banner">
+      <strong>BEFORE PUBLISHING:</strong> The pricing-comparison anchor on this page is a citation to a publicly listed Maya® price as of a specific date. <strong>You must update the citation date and the cited figure to match what is currently published</strong> at the URL below before this page goes live, and re-verify it on a regular schedule. Stale price citations are themselves a misleading-comparison risk. All <span class="mono">[BRACKETED]</span> values must be filled in.
+    </div>
+
+    <section>
+      <h2>The structure, in plain language</h2>
+      <p>Kimiyaa is sold to studios on a structured pilot basis. We don't publish a self-serve per-seat list price because the platform is being actively developed and pilot scope varies meaningfully by studio size, plugin footprint, and on-prem-AI requirements. What we <strong>can</strong> publish is the structure within which any specific pilot is priced.</p>
+
+      <div class="pricing-card">
+        <div class="pc-tag">Pilot Year (Year 1)</div>
+        <div class="pc-name">Evaluation pilot</div>
+        <div class="pc-desc">A bounded, written-scope pilot with high-touch support. Pricing for the pilot year is set per studio at signing — typically a fixed fee that reflects scope and seat count, not a list price. Existing toolchain runs in parallel. The pilot is scoped before commitment, with a written compatibility note delivered before installation.</div>
+        <div class="pc-price">By application</div>
+      </div>
+
+      <div class="pricing-card highlight">
+        <div class="pc-tag">Post-pilot (ongoing)</div>
+        <div class="pc-name">Ongoing per-seat licensing</div>
+        <div class="pc-desc">For studios that proceed past the pilot, our standard ongoing per-seat pricing is set as a <strong>ceiling at or below the equivalent commercial Maya® per-seat price published by Autodesk</strong> at the time of pilot signing. The ceiling is locked at signing for the duration of the agreed term — your pricing is not subject to subsequent revisions on our side.</div>
+        <div class="pc-price"><span style="color:var(--accent);">≤ commercial Maya® per-seat</span></div>
+        <small style="color: var(--ink-muted); font-size: 13px;">Specific number is set at pilot signing based on the then-current published Maya® price; see methodology below.</small>
+      </div>
+
+      <p style="margin-top: 24px;">Specific commercial terms — including the exact ceiling figure, currency, payment terms, term length, and any volume considerations — are shared in writing during the application process. We do not negotiate pricing in initial replies; we share standard terms and a scoping call slot.</p>
+    </section>
+
+    <section>
+      <h2>How any "vs Maya®" comparison is calculated</h2>
+      <p>If you see a sentence on this site that compares Kimiyaa to commercial Maya® pricing, here is exactly how that comparison is constructed. We've set this out in detail because comparison-pricing claims are the kind of thing a regulator, a journalist, or a procurement team should be able to audit.</p>
+
+      <div class="methodology-box">
+        <h3>Anchor: Autodesk's published Maya® price</h3>
+        <p>Comparisons reference the <strong>1-year Maya® subscription per-seat price as published by Autodesk on its own website</strong>. Specifically:</p>
+        <span class="src">[CITATION URL — e.g. https://www.autodesk.com/products/maya/subscribe]</span>
+        <p style="font-size: 13px; color: var(--ink-dim);">Citation date: <strong style="color: var(--ink-muted);">[DATE PRICE WAS LAST VERIFIED — e.g. 5 May 2026]</strong>. Currency: <strong style="color: var(--ink-muted);">[USD / GBP / INR / etc., as listed at the URL above for your region]</strong>. We re-verify the cited figure on a quarterly basis at minimum, and update this page when it changes.</p>
+
+        <h3>What we deliberately do <em>not</em> include</h3>
+        <ul>
+          <li><strong>Multi-year pre-paid discounts</strong>, educational pricing, or enterprise / volume programmes — these vary by negotiation and are not a like-for-like comparison.</li>
+          <li><strong>Bundle pricing</strong> (e.g. Media &amp; Entertainment Collection) — this is a different product and is not a fair comparison to a per-seat Maya® equivalent.</li>
+          <li><strong>Currency conversions we did ourselves</strong> — comparisons use the price as published, in the currency it is published in, for the region in question.</li>
+        </ul>
+
+        <h3>What this means in practice</h3>
+        <p>If our standard ongoing per-seat ceiling is set at, say, 30% of the cited commercial Maya® per-seat price as of the citation date, that is the figure that applies to your pilot agreement at signing — it is then locked for the duration of the agreed term, regardless of what the cited Autodesk price subsequently does. Future Autodesk price changes do <strong>not</strong> automatically pull our ceiling up, and they do not pull it down either. The ceiling is a contractual figure once signed.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Worked examples</h2>
+      <p>The table below shows how the structure plays out for studios of different sizes, using <strong>illustrative</strong> placeholder numbers. The actual figures from your pilot signing would replace the placeholders below.</p>
+
+      <table class="examples">
+        <thead>
+          <tr>
+            <th>Studio size</th>
+            <th>Pilot year</th>
+            <th>Year 2+, illustrative</th>
+            <th>Approx. annual delta vs published commercial Maya®</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>5–10 seats</strong></td>
+            <td class="muted">Per pilot agreement</td>
+            <td class="mono">[ILLUSTRATIVE FIGURE]</td>
+            <td class="muted">[%] lower per seat at the cited Maya® anchor</td>
+          </tr>
+          <tr>
+            <td><strong>50 seats</strong></td>
+            <td class="muted">Per pilot agreement</td>
+            <td class="mono">[ILLUSTRATIVE FIGURE]</td>
+            <td class="muted">[%] lower per seat at the cited Maya® anchor</td>
+          </tr>
+          <tr>
+            <td><strong>150 seats</strong></td>
+            <td class="muted">Per pilot agreement</td>
+            <td class="mono">[ILLUSTRATIVE FIGURE]</td>
+            <td class="muted">[%] lower per seat at the cited Maya® anchor</td>
+          </tr>
+          <tr>
+            <td><strong>300 seats</strong></td>
+            <td class="muted">Per pilot agreement</td>
+            <td class="mono">[ILLUSTRATIVE FIGURE]</td>
+            <td class="muted">[%] lower per seat at the cited Maya® anchor</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 16px; font-size: 13px; color: var(--ink-dim);">These are illustrative inputs for your own spreadsheet. They are not a live calculator and they are not a quote. The actual figures applicable to your studio are written into the pilot agreement at signing.</p>
+    </section>
+
+    <section>
+      <h2>What's included in the pilot price</h2>
+      <ul>
+        <li><strong>Scoping</strong> — written compatibility note covering your scripts, plugins, and a representative scene, delivered before installation.</li>
+        <li><strong>Installation and pipeline integration</strong> — connecting Kimiyaa to your asset server, render farm, and version control.</li>
+        <li><strong>High-touch support during the pilot</strong> — direct contact with our team, not a queue.</li>
+        <li><strong>Issue logging and remediation</strong> — issues observed during the pilot are logged openly and either fixed within the pilot, scheduled, or declared out-of-scope, in writing.</li>
+        <li><strong>Pilot exit report</strong> — at the end of the pilot, a written summary of what was observed (onboarding time, compatibility, throughput) so you have your own data on which to base a continuing decision.</li>
+      </ul>
+      <h3>Not included</h3>
+      <ul>
+        <li><strong>Bespoke development work</strong> outside the agreed scope — quoted separately.</li>
+        <li><strong>Training programmes</strong> beyond the standard pilot onboarding — quoted separately.</li>
+        <li><strong>On-prem AI hardware</strong> — Kimiyaa supports running optional generative-AI features on local hardware, but we don't sell the hardware. Recommended specs are shared during scoping.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>FAQ on pricing specifically</h2>
+
+      <h3>Why don't you just publish per-seat list pricing?</h3>
+      <p>Two reasons. First, the platform is actively developed and we want pricing to reflect the scope of any given pilot rather than be a number that has to be discounted in every conversation. Second, we don't think it's responsible to publish a per-seat number that's pegged to a third-party's published price without that party's price being clearly cited in the same place — which is what this page is for.</p>
+
+      <h3>Will the price go up after Year 2?</h3>
+      <p>The ceiling set at pilot signing is locked for the duration of the agreed term. Renewal pricing is part of the renewal conversation. We don't operate a pricing model where unannounced step-changes apply mid-term.</p>
+
+      <h3>Do you offer multi-year discounts?</h3>
+      <p>Multi-year terms are available and pricing reflects that. Specifics are part of the pilot agreement.</p>
+
+      <h3>Currency / regional pricing?</h3>
+      <p>We bill in <strong>[CURRENCY — e.g. USD by default; INR for Indian studios; GBP/EUR for UK/EU studios]</strong>. The Maya® comparison anchor is taken from Autodesk's published price for the same region, in the same currency — not a converted figure.</p>
+
+      <h3>What if Autodesk drops Maya® prices significantly?</h3>
+      <p>Your contractual ceiling does not move automatically. If you'd like to renegotiate at renewal in light of significant market price movement, that's a renewal-conversation matter; we don't pretend the market is static.</p>
+
+      <h3>Are educational, charitable, or open-source-project rates available?</h3>
+      <p>Yes — talk to us. We don't publish a fixed schedule for these because the right answer varies by use case.</p>
+    </section>
+
+    <section>
+      <h2>What to do next</h2>
+      <div class="cta-strip">
+        <h3>Take the structure to your CFO; come back to us with your pilot scope.</h3>
+        <p style="max-width: 600px; margin: 0 auto 24px;">If the structure works on paper, the next step is a scoping conversation. We'll send our standard pilot terms in writing and book a call slot.</p>
+        <a href="index.html#apply" class="btn btn-lg">Apply to pilot →</a>
+        <p style="margin-top: 24px; font-size: 14px;">
+          Or write directly: <a href="mailto:founder@kimiyaa.ai">founder@kimiyaa.ai</a>
+        </p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer style="margin-top: 60px;">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom: 12px; display:inline-block;">kimiyaa<span>.ai</span></a>
+        <p style="color: var(--ink-muted); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 8px;">A 3D platform designed for studios with Maya®-trained teams. Independent. Built by [LEGAL ENTITY NAME].</p>
+        <p style="color: var(--ink-dim); font-size: 13px; margin-top: 16px;">[REGISTERED OFFICE ADDRESS]</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#compare">Comparison</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#apply">Apply to pilot</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; team</a></li>
+          <li><a href="mailto:hello@kimiyaa.ai">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p style="margin-bottom: 12px;"><strong style="color: var(--ink-muted);">Trademark notice:</strong> Maya® and Autodesk® are registered trademarks of Autodesk, Inc. Blender® is a registered trademark of the Blender Foundation. Kimiyaa.ai is not affiliated with, endorsed by, or sponsored by Autodesk, Inc. or the Blender Foundation. References to these products are made for purposes of compatibility and comparison only.</p>
+      <p>© 2026 [LEGAL ENTITY NAME]. All rights reserved. Registered in [COUNTRY] · [REGISTRATION NUMBER]. Contact: <a href="mailto:hello@kimiyaa.ai">hello@kimiyaa.ai</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

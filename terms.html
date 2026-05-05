@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Terms of Use — Kimiyaa.ai</title>
+<meta name="description" content="Terms governing use of the Kimiyaa.ai website." />
+<link rel="canonical" href="https://landing.kimiyaa.ai/terms.html" />
+<meta name="robots" content="index,follow" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #0b0c0d; --bg-elev: #131518; --bg-elev-2: #1a1d22;
+    --border: #25282e; --border-soft: #1c1f24;
+    --ink: #ededec; --ink-muted: #9a9da4; --ink-dim: #6b6e76;
+    --accent: #d4a04f; --accent-soft: rgba(212, 160, 79, 0.12); --accent-line: rgba(212, 160, 79, 0.3);
+    --warn: #c87264; --warn-soft: rgba(200, 114, 100, 0.1);
+    --maxw: 1200px; --maxw-doc: 760px; --radius: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.65; font-size: 16px; -webkit-font-smoothing: antialiased; }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Consolas, monospace; }
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-line); }
+  a:hover { border-bottom-color: var(--accent); }
+
+  header { position: sticky; top: 0; z-index: 50; background: rgba(11, 12, 13, 0.85); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); border-bottom: 1px solid var(--border-soft); }
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; max-width: var(--maxw); margin: 0 auto; }
+  .logo { font-weight: 700; font-size: 18px; letter-spacing: -0.01em; border: none; color: var(--ink); }
+  .logo span { color: var(--accent); }
+  .nav-actions { display: flex; align-items: center; gap: 8px; }
+  .nav-link { color: var(--ink-muted); font-size: 14px; padding: 8px 12px; border: none; }
+  .nav-link:hover { color: var(--ink); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit; font-size: 15px; font-weight: 600; padding: 10px 18px; border-radius: var(--radius); border: 1px solid var(--accent); cursor: pointer; background: var(--accent); color: #1a1408; }
+  .btn:hover { background: #e0ad5d; border-color: #e0ad5d; }
+
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+  .container-doc { max-width: var(--maxw-doc); margin: 0 auto; padding: 0 24px; }
+  .doc-header { padding: 80px 0 32px; }
+  .eyebrow { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+  h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.022em; line-height: 1.15; margin-bottom: 12px; }
+  .doc-meta { color: var(--ink-dim); font-size: 14px; font-family: 'JetBrains Mono', monospace; }
+  .doc-body { padding: 16px 0 80px; }
+  .doc-body h2 { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; margin-top: 48px; margin-bottom: 16px; color: var(--ink); }
+  .doc-body p { color: var(--ink-muted); margin-bottom: 16px; }
+  .doc-body ul, .doc-body ol { color: var(--ink-muted); margin-left: 22px; margin-bottom: 16px; }
+  .doc-body li { margin-bottom: 8px; }
+  .doc-body strong { color: var(--ink); font-weight: 600; }
+
+  .review-banner { background: var(--warn-soft); border: 1px solid var(--warn); padding: 18px 22px; border-radius: var(--radius); margin-bottom: 32px; font-size: 14px; line-height: 1.6; color: var(--ink); }
+  .review-banner strong { color: var(--warn); }
+  .placeholder-banner { background: var(--accent-soft); border: 1px solid var(--accent-line); padding: 16px 22px; border-radius: var(--radius); margin-bottom: 32px; font-size: 13px; line-height: 1.6; color: var(--ink-muted); }
+  .placeholder-banner strong { color: var(--accent); }
+
+  footer { padding: 56px 0 40px; background: var(--bg-elev-2); border-top: 1px solid var(--border); }
+  .foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+  .foot-grid h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); margin-bottom: 14px; font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .foot-grid ul { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+  .foot-grid a { color: var(--ink-muted); border: none; }
+  .foot-grid a:hover { color: var(--ink); }
+  .foot-bottom { border-top: 1px solid var(--border-soft); padding-top: 24px; font-size: 13px; color: var(--ink-dim); line-height: 1.7; }
+  .foot-bottom a { color: var(--ink-muted); border: none; border-bottom: 1px solid var(--border); }
+
+  @media (max-width: 720px) { h1 { font-size: 30px; } .foot-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="index.html" class="logo">kimiyaa<span>.ai</span></a>
+    <div class="nav-actions">
+      <a href="about.html" class="nav-link">About</a>
+      <a href="index.html#compare" class="nav-link">Compare</a>
+      <a href="pricing.html" class="nav-link">Pricing</a>
+      <a href="index.html#apply" class="btn">Apply to pilot →</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container-doc doc-header">
+    <div class="eyebrow">Legal · Terms</div>
+    <h1>Terms of Use</h1>
+    <div class="doc-meta">Last updated: [DATE — e.g. 5 May 2026] · Effective: [DATE]</div>
+  </div>
+
+  <div class="container-doc doc-body">
+
+    <div class="review-banner">
+      <strong>BEFORE PUBLISHING:</strong> This document is a structured starting point — not a finished legal instrument. It must be reviewed by qualified counsel in your jurisdiction (the governing-law clause, limitation of liability, and pilot-agreement references are particularly important to get right for your specific market and entity structure). All <span class="mono">[BRACKETED]</span> values must also be filled in. <strong>Do not publish until both reviews are complete.</strong>
+    </div>
+
+    <div class="placeholder-banner">
+      <strong>PLACEHOLDERS:</strong> [LEGAL ENTITY NAME], [REGISTRATION NUMBER], [REGISTERED OFFICE ADDRESS], [COUNTRY OF INCORPORATION], [GOVERNING-LAW COUNTRY/STATE], [DISPUTE-RESOLUTION FORUM], [NOTICE EMAIL — e.g. legal@kimiyaa.ai], [DATE]. Note that the limitation-of-liability cap below should be set by your counsel based on the products and your insurance position; we have left a placeholder figure rather than a default.
+    </div>
+
+    <h2>1. Introduction</h2>
+    <p>These terms govern your access to and use of the website at kimiyaa.ai and any related pages or subdomains operated by <strong>[LEGAL ENTITY NAME]</strong> ("Kimiyaa", "we", "us"). They do <strong>not</strong> govern use of the Kimiyaa software itself or the terms of any pilot evaluation; those are governed by a separate written pilot agreement provided to studios that proceed past the application stage.</p>
+    <p>By using this website, you agree to these terms. If you do not agree, please do not use this website.</p>
+
+    <h2>2. About us</h2>
+    <p><strong>[LEGAL ENTITY NAME]</strong> is a company registered in <strong>[COUNTRY OF INCORPORATION]</strong> under registration number <strong>[REGISTRATION NUMBER]</strong>, with its registered office at <strong>[REGISTERED OFFICE ADDRESS]</strong>. The website is operated from those offices.</p>
+
+    <h2>3. What this website is</h2>
+    <p>This website provides information about Kimiyaa — a 3D platform we are developing for studios with teams trained on Maya®-style workflows — and a means to apply for a pilot evaluation. It is informational and does not constitute an offer to sell the software, a binding service description, or any kind of warranty about the platform's performance. The platform itself, when made available to a studio, is subject to a separate written pilot agreement.</p>
+
+    <h2>4. Eligibility and acceptable use</h2>
+    <p>You may use this website if you are at least 18 years of age and are using it on your own behalf or on behalf of an organisation you are authorised to represent. You agree not to:</p>
+    <ul>
+      <li>use this website in violation of any applicable law or regulation;</li>
+      <li>submit false, misleading, or another party's information through any form;</li>
+      <li>attempt to gain unauthorised access to the website, its underlying infrastructure, or any data not intended for you;</li>
+      <li>scrape, mirror, or systematically copy the website except with our written permission;</li>
+      <li>upload or transmit malware, scripts, or any code that could damage the site or other users;</li>
+      <li>impersonate any person or entity, or misrepresent your affiliation with any person or entity.</li>
+    </ul>
+
+    <h2>5. Pilot application form</h2>
+    <p>If you submit information through the pilot application form, you confirm that the information is accurate to the best of your knowledge and that you are authorised to share it. We process that information as described in our <a href="privacy.html">Privacy Notice</a>. Submission of the form does not in itself create a pilot agreement; pilot terms are commercial and shared in writing as a separate document.</p>
+
+    <h2>6. Intellectual property</h2>
+    <h3 style="font-size: 17px; margin-top: 24px; margin-bottom: 10px; color: var(--ink);">Our content</h3>
+    <p>Except where otherwise indicated, the content of this website — including text, layouts, logos, and imagery — is owned by <strong>[LEGAL ENTITY NAME]</strong> or its licensors and is protected by applicable copyright, trademark, and related laws. You may view and reasonably print pages for your own information; you may not copy, redistribute, or repurpose the content without our written permission.</p>
+    <h3 style="font-size: 17px; margin-top: 24px; margin-bottom: 10px; color: var(--ink);">Third-party trademarks</h3>
+    <p>This website refers to third-party software, including <strong>Autodesk® Maya®</strong> and <strong>Blender®</strong>, for purposes of comparison and compatibility context only. Maya® and Autodesk® are registered trademarks of Autodesk, Inc. Blender® is a registered trademark of the Blender Foundation. Other product or company names mentioned may be trademarks of their respective owners. <strong>Kimiyaa is not affiliated with, endorsed by, or sponsored by Autodesk, Inc. or the Blender Foundation.</strong></p>
+    <h3 style="font-size: 17px; margin-top: 24px; margin-bottom: 10px; color: var(--ink);">Open-source components</h3>
+    <p>The Kimiyaa platform incorporates open-source components, each governed by its respective licence. <strong>[A complete attributions / NOTICE file is published at /attributions and updated as components change.]</strong> Where any component imposes obligations on Kimiyaa as a downstream user (for example, source-availability obligations under copyleft licences), we comply with those obligations and publish the relevant materials at the URL referenced in the corresponding licence notice.</p>
+
+    <h2>7. Information accuracy</h2>
+    <p>We aim to keep the website accurate and current, but the platform is being actively developed and information is necessarily subject to change. Specific product capabilities for your studio's use case are confirmed in writing during the pilot scoping process; statements on this website are descriptive of design intent and current direction, not warranties of fitness for any specific purpose.</p>
+
+    <h2>8. Third-party links</h2>
+    <p>The website may link to third-party sites. Those sites are operated by parties we do not control, and we are not responsible for their content, policies, or practices. Inclusion of a link does not imply endorsement.</p>
+
+    <h2>9. Disclaimers</h2>
+    <p>The website is provided <strong>"as is"</strong> and <strong>"as available."</strong> To the maximum extent permitted by applicable law, we disclaim all warranties, express or implied, including warranties of merchantability, fitness for a particular purpose, non-infringement, accuracy, and availability. We do not warrant that the website will be uninterrupted, timely, secure, or error-free.</p>
+    <p>Nothing in these terms excludes or limits any liability that cannot lawfully be excluded or limited under applicable law (including, where applicable, liability for fraud or for personal injury caused by negligence).</p>
+
+    <h2>10. Limitation of liability</h2>
+    <p>To the maximum extent permitted by applicable law, our aggregate liability arising out of or relating to your use of this website shall not exceed <strong>[CAP — set by counsel — e.g. INR 50,000 / USD 100]</strong>. We are not liable for indirect, incidental, special, consequential, or punitive damages, or for loss of profits, revenue, data, or goodwill, even if advised of the possibility of such damages.</p>
+    <p>The above limitation applies to the website only. Liability and remedies under any pilot agreement are governed by that pilot agreement.</p>
+
+    <h2>11. Indemnity</h2>
+    <p>You agree to indemnify and hold us harmless from claims, damages, and reasonable expenses arising out of your misuse of the website or your breach of these terms, except to the extent caused by our negligence or wilful misconduct.</p>
+
+    <h2>12. Suspension and termination</h2>
+    <p>We may suspend or terminate access to the website (in whole or in part) at any time, without notice, in our reasonable discretion — for example, where required by law, where access has been misused, or for routine maintenance. Sections that by their nature should survive termination (intellectual property, disclaimers, limitation of liability, indemnity, governing law) survive.</p>
+
+    <h2>13. Changes to these terms</h2>
+    <p>We may update these terms from time to time. The revised version will be posted on this page with an updated "Last updated" date. Continued use of the website after the effective date of any update constitutes acceptance.</p>
+
+    <h2>14. Governing law and jurisdiction</h2>
+    <p>These terms and any dispute or claim arising out of or in connection with them are governed by the laws of <strong>[GOVERNING-LAW COUNTRY/STATE]</strong>, without regard to conflict-of-laws principles. The courts of <strong>[DISPUTE-RESOLUTION FORUM]</strong> have exclusive jurisdiction, except that we may bring proceedings in any jurisdiction where infringement of our rights occurs. Nothing in this clause limits any non-waivable rights you may have as a consumer under your local law.</p>
+
+    <h2>15. Notices and contact</h2>
+    <p>Notices to us under these terms should be sent in writing to <a href="mailto:[NOTICE EMAIL]">[NOTICE EMAIL]</a> or to <strong>[LEGAL ENTITY NAME]</strong>, <strong>[REGISTERED OFFICE ADDRESS]</strong>. For general questions, <a href="mailto:hello@kimiyaa.ai">hello@kimiyaa.ai</a>.</p>
+
+    <h2>16. Miscellaneous</h2>
+    <p>If any provision of these terms is held unenforceable, the remaining provisions remain in effect. Our failure to enforce any provision is not a waiver. These terms (together with the Privacy Notice and any pilot agreement we enter into) constitute the entire agreement between you and us regarding the website.</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="index.html" class="logo" style="margin-bottom: 12px; display:inline-block;">kimiyaa<span>.ai</span></a>
+        <p style="color: var(--ink-muted); font-size: 14px; line-height: 1.6; max-width: 320px; margin-top: 8px;">A 3D platform designed for studios with Maya®-trained teams. Independent. Built by [LEGAL ENTITY NAME].</p>
+        <p style="color: var(--ink-dim); font-size: 13px; margin-top: 16px;">[REGISTERED OFFICE ADDRESS]</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html#compare">Comparison</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="index.html#apply">Apply to pilot</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About &amp; team</a></li>
+          <li><a href="mailto:hello@kimiyaa.ai">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p style="margin-bottom: 12px;"><strong style="color: var(--ink-muted);">Trademark notice:</strong> Maya® and Autodesk® are registered trademarks of Autodesk, Inc. Blender® is a registered trademark of the Blender Foundation. Kimiyaa.ai is not affiliated with, endorsed by, or sponsored by Autodesk, Inc. or the Blender Foundation. References to these products are made for purposes of compatibility and comparison only.</p>
+      <p>© 2026 [LEGAL ENTITY NAME]. All rights reserved. Registered in [COUNTRY] · [REGISTRATION NUMBER]. Contact: <a href="mailto:hello@kimiyaa.ai">hello@kimiyaa.ai</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
