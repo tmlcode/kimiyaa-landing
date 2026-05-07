@@ -429,7 +429,488 @@
   .sticky-cta-text strong { color: var(--accent); }
   .sticky-cta .btn { padding: 11px 18px; font-size: 14px; }
 
+
+  /* PRODUCT MEDIA SECTIONS */
+  .media-showcase {
+    background:
+      radial-gradient(circle at 18% 10%, rgba(212, 160, 79, 0.10), transparent 34%),
+      linear-gradient(180deg, var(--bg-elev), var(--bg));
+    overflow: hidden;
+  }
+  .media-section-head {
+    max-width: 780px;
+    margin-bottom: 44px;
+  }
+  .video-carousel-shell,
+  .screenshot-carousel-shell {
+    position: relative;
+  }
+  .video-carousel-viewport {
+    width: min(1040px, calc(100% - 40px));
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 42px 28px 34px;
+  }
+  .screenshot-carousel-viewport {
+    width: min(1180px, calc(100% - 24px));
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 58px 42px 48px;
+  }
+  .video-carousel-track,
+  .screenshot-carousel-track {
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
+    transition: transform 0.45s ease;
+    will-change: transform;
+  }
+  .video-card,
+  .screenshot-card {
+    position: relative;
+    background: rgba(11, 12, 13, 0.72);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 18px 54px rgba(0, 0, 0, 0.22);
+    transition: border-color 0.25s ease, opacity 0.25s ease, transform 0.35s ease, box-shadow 0.25s ease;
+    transform: scale(0.82);
+    transform-origin: center center;
+  }
+  .video-card {
+    flex: 0 0 310px;
+  }
+  .screenshot-card {
+    flex: 0 0 360px;
+  }
+  .video-card.is-active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(212,160,79,0.16), 0 26px 78px rgba(0,0,0,0.34);
+    opacity: 1;
+    transform: scale(1.16);
+    z-index: 3;
+  }
+  .screenshot-card.is-active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px rgba(212,160,79,0.16), 0 28px 90px rgba(0,0,0,0.34);
+    opacity: 1;
+    transform: scale(1.22);
+    z-index: 3;
+  }
+  .video-card:not(.is-active),
+  .screenshot-card:not(.is-active) {
+    opacity: 0.58;
+  }
+  .video-card:hover,
+  .screenshot-card:hover {
+    border-color: rgba(212,160,79,0.55);
+  }
+  .video-thumb,
+  .screenshot-thumb {
+    position: relative;
+    height: 320px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.05), rgba(0,0,0,0.24)),
+      #16191d;
+    overflow: hidden;
+  }
+  .video-thumb {
+    height: 410px;
+  }
+  .screenshot-thumb {
+    height: 500px;
+  }
+  .video-thumb video {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #08090a;
+  }
+  .video-title,
+  .screenshot-copy {
+    padding: 20px 22px 22px;
+    min-height: 92px;
+    background: linear-gradient(180deg, rgba(11,12,13,0.80), rgba(11,12,13,0.96));
+  }
+  .screenshot-copy {
+    min-height: 28px;
+    padding: 0;
+  }
+  .video-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .screenshot-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .screenshot-desc {
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.45;
+  }
+  .screenshot-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    object-position: center;
+    background: #0a0b0c;
+  }
+  .featured-pill {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    padding: 6px 10px;
+    background: var(--accent);
+    color: #1a1408;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .play-btn {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    z-index: 4;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid var(--accent);
+    background: rgba(11,12,13,0.76);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 10px rgba(212,160,79,0.10);
+    transition: transform 0.12s ease, background 0.15s ease;
+  }
+  .video-card:not(.is-active) .play-btn {
+    width: 64px;
+    height: 64px;
+  }
+  .play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.04);
+    background: rgba(212,160,79,0.20);
+  }
+  .play-btn::before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 22px solid #fff;
+    margin-left: 5px;
+  }
+  .fake-ui {
+    position: absolute;
+    inset: 0;
+    opacity: 0.92;
+  }
+  .fake-ui::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 44px;
+    background:
+      linear-gradient(90deg, rgba(212,160,79,0.38) 0 12px, transparent 12px 20px) 18px 15px / 20px 12px repeat-x,
+      rgba(255,255,255,0.035);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .fake-ui::after {
+    content: '';
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    height: 34px;
+    border-radius: 5px;
+    background: rgba(0,0,0,0.34);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .fake-ui-teapot {
+    background:
+      radial-gradient(ellipse at 52% 52%, rgba(210,210,210,0.23) 0 14%, transparent 15%),
+      radial-gradient(ellipse at 53% 58%, rgba(180,180,180,0.22) 0 24%, transparent 25%),
+      linear-gradient(90deg, transparent 0 48%, rgba(255,255,255,0.08) 49% 50%, transparent 51%),
+      linear-gradient(0deg, transparent 0 48%, rgba(255,255,255,0.08) 49% 50%, transparent 51%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 28px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 28px),
+      linear-gradient(145deg, #3a3d40, #151719);
+  }
+  .fake-ui-graph {
+    background:
+      radial-gradient(circle at 24% 48%, rgba(127,179,123,0.95) 0 3px, transparent 4px),
+      radial-gradient(circle at 44% 35%, rgba(212,160,79,0.95) 0 3px, transparent 4px),
+      radial-gradient(circle at 66% 58%, rgba(200,114,100,0.95) 0 3px, transparent 4px),
+      linear-gradient(155deg, transparent 0 20%, rgba(127,179,123,0.95) 21%, transparent 22% 100%),
+      linear-gradient(28deg, transparent 0 34%, rgba(212,160,79,0.85) 35%, transparent 36% 100%),
+      linear-gradient(330deg, transparent 0 46%, rgba(200,114,100,0.85) 47%, transparent 48% 100%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 36px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 48px),
+      linear-gradient(145deg, #20242a, #0f1114);
+  }
+  .fake-ui-rig {
+    background:
+      radial-gradient(circle at 52% 35%, rgba(180,190,190,0.35) 0 8%, transparent 9%),
+      linear-gradient(90deg, transparent 0 48%, rgba(212,160,79,0.50) 49% 50%, transparent 51%),
+      radial-gradient(ellipse at 52% 56%, rgba(180,190,190,0.22) 0 16%, transparent 17%),
+      radial-gradient(ellipse at 52% 70%, rgba(212,160,79,0.20) 0 30%, transparent 31%),
+      linear-gradient(90deg, rgba(0,0,0,0.30) 0 24%, transparent 24%),
+      linear-gradient(145deg, #343941, #151719);
+  }
+  .fake-ui-pipeline {
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.36) 0 30%, transparent 30%),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.08) 0 1px, transparent 1px 30px),
+      linear-gradient(145deg, #252931, #111317);
+  }
+  .video-player-bar {
+    position: absolute;
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+    z-index: 3;
+    display: none;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(0,0,0,0.68);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+  }
+  .video-card.is-playing .video-player-bar {
+    display: none;
+  }
+  .video-card.is-playing .play-btn,
+  .video-card.is-playing .fake-ui,
+  .video-card.is-playing .featured-pill {
+    display: none;
+  }
+  .player-icon {
+    font-size: 18px;
+    color: #fff;
+    line-height: 1;
+  }
+  .player-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .player-progress {
+    position: relative;
+    height: 4px;
+    flex: 1;
+    border-radius: 99px;
+    background: rgba(255,255,255,0.22);
+  }
+  .player-progress span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 38%;
+    border-radius: inherit;
+    background: var(--accent);
+  }
+  .carousel-arrow {
+    position: absolute;
+    top: 48%;
+    z-index: 6;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(11,12,13,0.74);
+    color: var(--ink);
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(10px);
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s ease;
+  }
+  .carousel-arrow:hover {
+    border-color: var(--accent-line);
+    background: rgba(212,160,79,0.12);
+  }
+  .carousel-arrow:active {
+    transform: translateY(1px);
+  }
+  .carousel-arrow.prev {
+    left: -10px;
+  }
+  .carousel-arrow.next {
+    right: -10px;
+  }
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255,255,255,0.28);
+    cursor: pointer;
+  }
+  .carousel-dot.is-active {
+    background: var(--accent);
+  }
+  .screenshot-carousel-track {
+    overflow: visible;
+  }
+  .screenshot-card.is-featured {
+    border-color: var(--accent);
+  }
+  .screenshot-thumb {
+    height: 250px;
+  }
+  .screenshot-expand {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 8;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,160,79,0.55);
+    background: rgba(11,12,13,0.72);
+    color: var(--ink);
+    font-size: 18px;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+  .screenshot-expand:hover {
+    background: rgba(212,160,79,0.18);
+    border-color: var(--accent);
+  }
+  .proof-divider {
+    margin-top: 64px;
+    border-top: 1px solid var(--border-soft);
+  }
+
+  .media-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(6, 7, 8, 0.84);
+    backdrop-filter: blur(10px);
+  }
+  .media-lightbox.is-open {
+    display: flex;
+  }
+  .media-lightbox-dialog {
+    position: relative;
+    width: min(1180px, 94vw);
+    max-height: 90vh;
+    overflow: auto;
+    background: var(--bg-elev);
+    border: 1px solid var(--accent-line);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 32px 90px rgba(0,0,0,0.45);
+  }
+  .media-lightbox-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: rgba(11,12,13,0.84);
+    color: var(--ink);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .media-lightbox-stage {
+    min-height: 68vh;
+    padding: 22px 22px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0a0b0c;
+  }
+  .media-lightbox-stage img {
+    width: 100%;
+    max-width: 100%;
+    max-height: 76vh;
+    height: auto;
+    object-fit: contain;
+  }
+  .media-lightbox-stage .screenshot-thumb {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .media-lightbox-stage .screenshot-thumb {
+    min-height: 68vh;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .media-lightbox-stage .screenshot-expand,
+  .media-lightbox-stage .featured-pill {
+    display: none;
+  }
+  .media-lightbox-copy {
+    padding: 0 22px 24px;
+  }
+  .media-lightbox-copy h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .media-lightbox-copy p {
+    color: var(--ink-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
   @media (max-width: 980px) {
+
+    .video-carousel-viewport {
+      width: min(900px, calc(100% - 40px));
+      padding: 34px 20px 28px;
+    }
+    .screenshot-carousel-viewport {
+      width: min(960px, calc(100% - 28px));
+      padding: 44px 28px 38px;
+    }
+
+    .video-card,
+    .video-card:not(.is-active) { flex-basis: 280px; }
+    .screenshot-card,
+    .screenshot-card:not(.is-active) { flex-basis: 320px; }
+    .video-card.is-active { transform: scale(1.12); }
+    .screenshot-card.is-active { transform: scale(1.16); }
+    .video-thumb { height: 360px; }
+    .screenshot-thumb { height: 440px; }
     section { padding: 64px 0; }
     .hero-grid, .migration-grid, .calc-grid { grid-template-columns: 1fr; gap: 40px; }
     .why-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -441,6 +922,52 @@
     .cta-card { padding: 40px 24px; }
   }
   @media (max-width: 640px) {
+
+    .video-carousel-viewport,
+    .screenshot-carousel-viewport {
+      width: 100%;
+      padding: 0;
+    }
+
+    .media-section-head { margin-bottom: 28px; }
+    .video-carousel-track,
+    .screenshot-carousel-track {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 4px;
+    }
+    .video-card,
+    .video-card.is-active,
+    .video-card:not(.is-active),
+    .screenshot-card,
+    .screenshot-card.is-active,
+    .screenshot-card:not(.is-active) {
+      flex-basis: 82vw;
+      scroll-snap-align: center;
+      opacity: 1;
+      transform: scale(1);
+    }
+    .video-thumb {
+      height: 360px;
+    }
+    .screenshot-thumb {
+      height: 430px;
+    }
+    .carousel-arrow {
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+    }
+    .carousel-arrow.prev { left: -6px; }
+    .carousel-arrow.next { right: -6px; }
+    .video-player-bar {
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      gap: 8px;
+      padding: 10px;
+    }
+    .player-time { font-size: 11px; }
     .container, .container-narrow { padding: 0 18px; }
     section { padding: 48px 0; }
     .hero { padding: 36px 0 56px; }
@@ -498,7 +1025,7 @@
         <div class="eyebrow">A 3D platform for studios with industry-standard DCC-trained teams</div>
         <h1>A familiar workflow for studios rethinking their <span class="accent">licensing line.</span></h1>
         <p class="hero-sub">
-          Kimiyaa is built for studios whose artists are fluent in industry-standard DCC-style hotkeys, files, and scripts — and whose finance teams are running the math on annual subscription costs again. We work with you to evaluate fit before any commitment.
+          Kimiyaa is built for studios whose artists are fluent in Maya-style hotkeys, interface and workflows — and whose finance teams are running the math on annual subscription costs again. We work with you to evaluate fit before any commitment.
         </p>
         <div class="hero-ctas">
           <a href="#apply" class="btn btn-primary btn-lg">Apply to pilot →</a>
@@ -531,6 +1058,168 @@
     </div>
   </div>
 </section>
+
+
+<!-- PRODUCT PROOF: VIDEO CAROUSEL + SCREENSHOT CAROUSEL -->
+<section id="product-proof" class="media-showcase">
+  <div class="container">
+    <div class="media-section-head">
+      <div class="eyebrow">&lt;/&gt; Product proof</div>
+      <h2>See the familiar workflow before the sales call.</h2>
+      <p class="lead">Short demos for modelling, animation, rigging, and file handling — so your team can evaluate workflow familiarity before the pitch.</p>
+    </div>
+
+    <div class="video-carousel-shell" data-carousel="videos">
+      <button class="carousel-arrow prev" type="button" aria-label="Previous video">‹</button>
+      <div class="video-carousel-viewport">
+        <div class="video-carousel-track">
+          <article class="video-card" data-video="videos/Bottle Modeling (1).mp4" data-poster="">
+            <div class="video-thumb">
+              <div class="fake-ui fake-ui-teapot"></div>
+              <button class="play-btn" type="button" aria-label="Modelling"></button>
+              <div class="video-player-bar" aria-hidden="true">
+                <span class="player-icon">Ⅱ</span>
+                <span class="player-time">1:24 / 3:47</span>
+                <span class="player-progress"><span></span></span>
+                <span class="player-icon">♪</span>
+                <span class="player-icon">⚙</span>
+                <span class="player-icon">⛶</span>
+              </div>
+            </div>
+            <div class="video-title">Modelling</div>
+          </article>
+
+          <article class="video-card is-active" data-video="videos/animation-tools.mp4" data-poster="">
+            <div class="video-thumb">
+              <span class="featured-pill">Featured</span>
+              <div class="fake-ui fake-ui-graph"></div>
+              <button class="play-btn" type="button" aria-label="Play Animation tools"></button>
+              <div class="video-player-bar" aria-hidden="true">
+                <span class="player-icon">Ⅱ</span>
+                <span class="player-time">1:24 / 3:47</span>
+                <span class="player-progress"><span></span></span>
+                <span class="player-icon">♪</span>
+                <span class="player-icon">⚙</span>
+                <span class="player-icon">⛶</span>
+              </div>
+            </div>
+            <div class="video-title">Animation tools</div>
+          </article>
+
+          <article class="video-card" data-video="videos/rigging-workflow.mp4" data-poster="">
+            <div class="video-thumb">
+              <div class="fake-ui fake-ui-rig"></div>
+              <button class="play-btn" type="button" aria-label="Play Rigging workflow"></button>
+              <div class="video-player-bar" aria-hidden="true">
+                <span class="player-icon">Ⅱ</span>
+                <span class="player-time">1:24 / 3:47</span>
+                <span class="player-progress"><span></span></span>
+                <span class="player-icon">♪</span>
+                <span class="player-icon">⚙</span>
+                <span class="player-icon">⛶</span>
+              </div>
+            </div>
+            <div class="video-title">Rigging workflow</div>
+          </article>
+
+          <article class="video-card" data-video="videos/pipeline-import-export.mp4" data-poster="">
+            <div class="video-thumb">
+              <div class="fake-ui fake-ui-pipeline"></div>
+              <button class="play-btn" type="button" aria-label="Play Pipeline import/export"></button>
+              <div class="video-player-bar" aria-hidden="true">
+                <span class="player-icon">Ⅱ</span>
+                <span class="player-time">1:24 / 3:47</span>
+                <span class="player-progress"><span></span></span>
+                <span class="player-icon">♪</span>
+                <span class="player-icon">⚙</span>
+                <span class="player-icon">⛶</span>
+              </div>
+            </div>
+            <div class="video-title">Pipeline import/export</div>
+          </article>
+        </div>
+      </div>
+      <button class="carousel-arrow next" type="button" aria-label="Next video">›</button>
+      <div class="carousel-dots" aria-label="Video carousel pagination"></div>
+    </div>
+
+    <div class="proof-divider"></div>
+
+    <div class="media-section-head" style="margin-top: 56px;">
+      <div class="eyebrow">&lt;/&gt; Interface preview</div>
+      <h2>Inspect the UI in stills.</h2>
+      <p class="lead">A screenshot carousel for quick inspection of workspaces, tools, and pipeline touchpoints.</p>
+    </div>
+
+    <div class="screenshot-carousel-shell" data-carousel="screenshots">
+      <button class="carousel-arrow prev" type="button" aria-label="Previous screenshot">‹</button>
+      <div class="screenshot-carousel-viewport">
+        <div class="screenshot-carousel-track">
+          <article class="screenshot-card">
+            <div class="screenshot-thumb">
+              <button class="screenshot-expand" type="button" aria-label="Enlarge Modelling workspace">⤢</button>
+              <img src="images/spl_menu1.png" alt="Modelling workspace" class="screenshot-img">
+            </div>
+            <div class="screenshot-copy">
+              <!-- <div class="screenshot-title">Special Menu</div> -->
+              <!-- <div class="screenshot-desc">Shelf, channel box, outliner</div> -->
+            </div>
+          </article>
+
+          <article class="screenshot-card">
+            <div class="screenshot-thumb">
+              <button class="screenshot-expand" type="button" aria-label="Enlarge Modelling workspace">⤢</button>
+              <img src="images/spl_menu2.png" alt="Modelling workspace" class="screenshot-img">
+            </div>
+            <div class="screenshot-copy">
+              <!-- <div class="screenshot-title">Special Menu</div> -->
+              <!-- <div class="screenshot-desc">Shelf, channel box, outliner</div> -->
+            </div>
+          </article>
+
+          <article class="screenshot-card">
+            <div class="screenshot-thumb">
+              <button class="screenshot-expand" type="button" aria-label="Enlarge Modelling workspace">⤢</button>
+              <img src="images/deform_menu.png" alt="Modelling workspace" class="screenshot-img">
+            </div>
+            <div class="screenshot-copy">
+              <!-- <div class="screenshot-title">Deform Menu</div> -->
+              <!-- <div class="screenshot-desc">Shelf, channel box, outliner</div> -->
+            </div>
+          </article>
+
+          <article class="screenshot-card">
+            <div class="screenshot-thumb">
+              <button class="screenshot-expand" type="button" aria-label="Enlarge Modelling workspace">⤢</button>
+              <img src="images/side_by_side.png" alt="Modelling workspace" class="screenshot-img">
+            </div>
+            <div class="screenshot-copy">
+              <!-- <div class="screenshot-title">Special Menu</div> -->
+              <!-- <div class="screenshot-desc">Shelf, channel box, outliner</div> -->
+            </div>
+          </article>
+
+          
+        </div>
+      </div>
+      <button class="carousel-arrow next" type="button" aria-label="Next screenshot">›</button>
+      <div class="carousel-dots" aria-label="Screenshot carousel pagination"></div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="media-lightbox" id="media-lightbox" aria-hidden="true">
+  <div class="media-lightbox-dialog" role="dialog" aria-modal="true" aria-labelledby="media-lightbox-title">
+    <button class="media-lightbox-close" type="button" aria-label="Close enlarged screenshot">×</button>
+    <div class="media-lightbox-stage"></div>
+    <div class="media-lightbox-copy">
+      <h3 id="media-lightbox-title"></h3>
+      <p id="media-lightbox-desc"></p>
+    </div>
+  </div>
+</div>
 
 <!-- WHY: rebalanced
      - Title softened from "leaving Industry Standard DCC" to "the math studios are running."
@@ -1020,6 +1709,275 @@
     }
     errorBox.textContent = message;
   }
+
+  // Product proof media carousels.
+  (function initProductProofCarousels() {
+    const videoShell = document.querySelector('[data-carousel="videos"]');
+    const screenshotShell = document.querySelector('[data-carousel="screenshots"]');
+    const lightbox = document.getElementById('media-lightbox');
+
+    function buildDots(shell, total, activeIndex, onDotClick) {
+      const dotsWrap = shell.querySelector('.carousel-dots');
+      dotsWrap.innerHTML = '';
+      for (let index = 0; index < total; index += 1) {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'carousel-dot' + (index === activeIndex ? ' is-active' : '');
+        dot.setAttribute('aria-label', `Go to item ${index + 1}`);
+        dot.addEventListener('click', () => onDotClick(index));
+        dotsWrap.appendChild(dot);
+      }
+    }
+
+    function updateDots(shell, activeIndex) {
+      shell.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === activeIndex);
+      });
+    }
+
+    function centerCard(viewport, track, card) {
+      if (!viewport || !track || !card) return;
+      const applyCenter = () => {
+        const viewportWidth = viewport.clientWidth;
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        const translateX = (viewportWidth / 2) - cardCenter;
+        track.style.transform = `translateX(${translateX}px)`;
+      };
+      requestAnimationFrame(applyCenter);
+      setTimeout(applyCenter, 30);
+      setTimeout(applyCenter, 180);
+    }
+
+    function createLoopedTrack(track, selector) {
+      const originals = Array.from(track.querySelectorAll(selector));
+      const templates = originals.map(node => node.cloneNode(true));
+      track.innerHTML = '';
+
+      const cards = [];
+      [0, 1, 2].forEach(copy => {
+        templates.forEach((template, realIndex) => {
+          const clone = template.cloneNode(true);
+          clone.dataset.realIndex = String(realIndex);
+          clone.dataset.copy = String(copy);
+          track.appendChild(clone);
+          cards.push(clone);
+        });
+      });
+
+      return { cards, count: templates.length };
+    }
+
+    function setupLightbox() {
+      if (!lightbox) return null;
+      const stage = lightbox.querySelector('.media-lightbox-stage');
+      const title = lightbox.querySelector('#media-lightbox-title');
+      const desc = lightbox.querySelector('#media-lightbox-desc');
+      const closeBtn = lightbox.querySelector('.media-lightbox-close');
+
+      function close() {
+        lightbox.classList.remove('is-open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        stage.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+
+      function openFromCard(card) {
+        stage.innerHTML = '';
+        title.textContent = card.querySelector('.screenshot-title')?.textContent?.trim() || '';
+        desc.textContent = card.querySelector('.screenshot-desc')?.textContent?.trim() || '';
+
+        const fullSrc = card.dataset.full;
+        if (fullSrc) {
+          const img = document.createElement('img');
+          img.src = fullSrc;
+          img.alt = title.textContent || 'Screenshot preview';
+          stage.appendChild(img);
+        } else {
+          const clonedThumb = card.querySelector('.screenshot-thumb').cloneNode(true);
+          stage.appendChild(clonedThumb);
+        }
+
+        lightbox.classList.add('is-open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      closeBtn.addEventListener('click', close);
+      lightbox.addEventListener('click', event => {
+        if (event.target === lightbox) close();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && lightbox.classList.contains('is-open')) {
+          close();
+        }
+      });
+
+      return { openFromCard, close };
+    }
+
+    const lightboxApi = setupLightbox();
+
+    if (videoShell) {
+      const viewport = videoShell.querySelector('.video-carousel-viewport');
+      const track = videoShell.querySelector('.video-carousel-track');
+      const preCards = Array.from(track.querySelectorAll('.video-card'));
+      let activeIndex = Math.max(0, preCards.findIndex(card => card.classList.contains('is-active')));
+      const { cards, count } = createLoopedTrack(track, '.video-card');
+
+      function getCenterCardByIndex(index) {
+        const normalized = (index + count) % count;
+        return cards.find(card => Number(card.dataset.realIndex) === normalized && card.dataset.copy === '1');
+      }
+
+      function stopRealVideos() {
+        cards.forEach(card => {
+          const video = card.querySelector('video');
+          if (video) {
+            video.pause();
+            video.remove();
+          }
+          card.classList.remove('is-playing', 'is-active');
+        });
+      }
+
+      function setActive(index, shouldPlay = false) {
+        activeIndex = (index + count) % count;
+        stopRealVideos();
+
+        const activeCard = getCenterCardByIndex(activeIndex);
+        if (!activeCard) return;
+
+        activeCard.classList.add('is-active');
+        centerCard(viewport, track, activeCard);
+
+        if (shouldPlay) {
+          const thumb = activeCard.querySelector('.video-thumb');
+          const src = activeCard.dataset.video;
+          const poster = activeCard.dataset.poster;
+
+          if (src) {
+            const video = document.createElement('video');
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+            video.src = src;
+            if (poster) video.poster = poster;
+
+            ['click', 'pointerdown', 'pointerup', 'mousedown', 'mouseup', 'touchstart', 'touchend'].forEach(eventName => {
+              video.addEventListener(eventName, event => event.stopPropagation());
+            });
+
+            thumb.appendChild(video);
+            activeCard.classList.add('is-playing');
+
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+              playPromise.catch(() => {
+                // Browser blocked autoplay. Native controls remain visible.
+              });
+            }
+          }
+        }
+
+        updateDots(videoShell, activeIndex);
+      }
+
+      videoShell.querySelector('.prev').addEventListener('click', () => setActive(activeIndex - 1));
+      videoShell.querySelector('.next').addEventListener('click', () => setActive(activeIndex + 1));
+
+      cards.forEach(card => {
+        const realIndex = Number(card.dataset.realIndex);
+        card.addEventListener('click', event => {
+          if (event.target.closest('video')) return;
+
+          const centerCardNode = getCenterCardByIndex(realIndex);
+          if (realIndex === activeIndex && centerCardNode?.classList.contains('is-playing')) return;
+
+          setActive(realIndex, true);
+        });
+      });
+
+      buildDots(videoShell, count, activeIndex, index => setActive(index));
+      track.addEventListener('transitionend', () => {
+        const activeCard = getCenterCardByIndex(activeIndex);
+        centerCard(viewport, track, activeCard);
+      });
+      setActive(activeIndex, false);
+      window.addEventListener('resize', () => {
+        const activeCard = getCenterCardByIndex(activeIndex);
+        centerCard(viewport, track, activeCard);
+      });
+    }
+
+    if (screenshotShell) {
+      const viewport = screenshotShell.querySelector('.screenshot-carousel-viewport');
+      const track = screenshotShell.querySelector('.screenshot-carousel-track');
+      const preCards = Array.from(track.querySelectorAll('.screenshot-card'));
+      let activeIndex = Math.max(0, preCards.findIndex(card => card.classList.contains('is-active')));
+      if (activeIndex < 0) activeIndex = 0;
+      const { cards, count } = createLoopedTrack(track, '.screenshot-card');
+
+      function getCenterCardByIndex(index) {
+        const normalized = (index + count) % count;
+        return cards.find(card => Number(card.dataset.realIndex) === normalized && card.dataset.copy === '1');
+      }
+
+      function setActive(index) {
+        activeIndex = (index + count) % count;
+        cards.forEach(card => {
+          card.classList.remove('is-active');
+        });
+
+        const activeCard = getCenterCardByIndex(activeIndex);
+        if (!activeCard) return;
+
+        activeCard.classList.add('is-active');
+        centerCard(viewport, track, activeCard);
+        updateDots(screenshotShell, activeIndex);
+      }
+
+      screenshotShell.querySelector('.prev').addEventListener('click', () => setActive(activeIndex - 1));
+      screenshotShell.querySelector('.next').addEventListener('click', () => setActive(activeIndex + 1));
+
+      cards.forEach(card => {
+        const realIndex = Number(card.dataset.realIndex);
+
+        card.addEventListener('click', event => {
+          if (event.target.closest('.screenshot-expand')) return;
+          setActive(realIndex);
+        });
+
+        const expandBtn = card.querySelector('.screenshot-expand');
+        if (expandBtn && lightboxApi) {
+          expandBtn.addEventListener('click', event => {
+            event.stopPropagation();
+            setActive(realIndex);
+            lightboxApi.openFromCard(getCenterCardByIndex(realIndex) || card);
+          });
+        }
+
+        card.addEventListener('dblclick', () => {
+          if (lightboxApi) {
+            setActive(realIndex);
+            lightboxApi.openFromCard(getCenterCardByIndex(realIndex) || card);
+          }
+        });
+      });
+
+      buildDots(screenshotShell, count, activeIndex, index => setActive(index));
+      track.addEventListener('transitionend', () => {
+        const activeCard = getCenterCardByIndex(activeIndex);
+        centerCard(viewport, track, activeCard);
+      });
+      setActive(activeIndex);
+      window.addEventListener('resize', () => {
+        const activeCard = getCenterCardByIndex(activeIndex);
+        centerCard(viewport, track, activeCard);
+      });
+    }
+  })();
+
 </script>
 
 </body>
