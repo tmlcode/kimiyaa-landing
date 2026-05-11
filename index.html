@@ -1542,7 +1542,7 @@
 <!-- APPLICATION FORM — softened
      - "Apply for the Free Year" CTA replaced with "Apply to pilot."
      - "No card. No commitment. Walk away anytime." trust-strip removed.
-     - Form is already minimal (name, studio, role, size, email) — kept as-is.
+     - Form is already minimal (studio, role, size, email) — kept as-is.
      - info@kimiyaa.ai contact preserved (real direct line is good for trust). -->
 <section id="apply" class="cta-section">
   <div class="container container-narrow">
@@ -1552,7 +1552,7 @@
       <p class="lead">Send us the basics about your studio. We'll respond from a real person on the team — usually within 48 hours — with our standard pilot terms and a scoping call slot. No commitment from this form; it's a conversation starter.</p>
 
       <form class="inline-form" id="pilot-form" onsubmit="handleSubmit(event)">
-        <input class="form-input" type="text" name="name" required placeholder="Name" />
+        <input class="form-input" type="text" name="name" required placeholder="Name" autocomplete="name" />
         <input class="form-input" type="text" name="studio" required placeholder="Studio name" />
         <div class="inline-form-row">
           <select class="form-select" name="role" required>
