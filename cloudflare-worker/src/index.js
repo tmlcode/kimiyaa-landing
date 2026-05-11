@@ -1,4 +1,5 @@
 const EMAILJS_SEND_URL = 'https://api.emailjs.com/api/v1.0/email/send';
+const DEFAULT_ADMIN_EMAIL = 'info@kimiyaa.ai';
 
 const corsBaseHeaders = {
   'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -85,6 +86,7 @@ function envStatus(env) {
     hasEmailJsTemplateId: Boolean(clean(env.EMAILJS_TEMPLATE_ID, 300)),
     hasEmailJsPublicKey: Boolean(clean(env.EMAILJS_PUBLIC_KEY, 300)),
     hasEmailJsAccessToken: isRealAccessToken(env.EMAILJS_ACCESS_TOKEN),
+    adminEmail: clean(env.ADMIN_EMAIL || DEFAULT_ADMIN_EMAIL, 300),
   };
 }
 
@@ -124,14 +126,40 @@ async function sendEmailJs(env, params) {
   return text;
 }
 
-function getTemplateParams({ studio, role, size, email, submittedAt }) {
+function getTemplateParams({
+  adminEmail,
+  studio,
+  role,
+  size,
+  email,
+  submittedAt,
+  name = 'Not provided from landing page',
+  appName = 'Not applicable',
+  downloadFile = 'Not applicable',
+  downloadLink = 'Not applicable',
+  product = 'Kimiyaa.ai Landing Page',
+  platform = 'Web',
+  requestType = 'Pilot application',
+  source = 'landing.kimiyaa.ai pilot form',
+  message = '',
+}) {
+  const finalMessage =
+    message ||
+    `New Kimiyaa pilot application\n\nStudio: ${studio}\nRole: ${role}\nStudio size: ${size}\nEmail: ${email}\nSubmitted at: ${submittedAt}`;
+
   return {
-    to_email: email,
+    // EmailJS routing fields.
+    // Use {{to_email}} for the admin template recipient if you do not hardcode it in EmailJS.
+    // Use {{email}} for the auto-reply recipient.
+    to_email: adminEmail,
+    admin_email: adminEmail,
     user_email: email,
     from_email: email,
     reply_to: email,
     email,
 
+    // Shared template fields used by both landing and file website.
+    request_type: requestType,
     studio,
     studio_name: studio,
     company: studio,
@@ -144,12 +172,22 @@ function getTemplateParams({ studio, role, size, email, submittedAt }) {
     studio_size: size,
     seats: size,
 
+    name,
+    user_name: name,
+    to_name: name,
+
+    app_name: appName,
+    download_file: downloadFile,
+    download_link: downloadLink,
+    product,
+    platform,
+
     submitted_at: submittedAt,
     submittedAt,
-    source: 'landing.kimiyaa.ai pilot form',
+    source,
+    message: finalMessage,
 
     subject: 'New Kimiyaa pilot application',
-    message: `New Kimiyaa pilot application\n\nStudio: ${studio}\nRole: ${role}\nStudio size: ${size}\nEmail: ${email}\nSubmitted at: ${submittedAt}`,
   };
 }
 
@@ -206,6 +244,7 @@ export default {
       return json({ ok: false, error: 'Invalid JSON body' }, 400, corsOrigin);
     }
 
+    // Honeypot field from the landing page form.
     if (clean(body.website, 200)) {
       return json({ ok: true }, 200, corsOrigin);
     }
@@ -236,16 +275,26 @@ export default {
     }
 
     const submittedAt = new Date().toISOString();
+    const adminEmail = clean(env.ADMIN_EMAIL || DEFAULT_ADMIN_EMAIL, 300);
 
     try {
       await sendEmailJs(
         env,
         getTemplateParams({
+          adminEmail,
           studio,
           role,
           size,
           email,
           submittedAt,
+          name: 'Not provided from landing page',
+          appName: 'Not applicable',
+          downloadFile: 'Not applicable',
+          downloadLink: 'Not applicable',
+          product: 'Kimiyaa.ai Landing Page',
+          platform: 'Web',
+          requestType: 'Pilot application',
+          source: 'landing.kimiyaa.ai pilot form',
         }),
       );
 
