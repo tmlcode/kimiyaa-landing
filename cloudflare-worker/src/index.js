@@ -145,7 +145,7 @@ function getTemplateParams({
 }) {
   const finalMessage =
     message ||
-    `New Kimiyaa pilot application\n\nStudio: ${studio}\nRole: ${role}\nStudio size: ${size}\nEmail: ${email}\nSubmitted at: ${submittedAt}`;
+    `New Kimiyaa pilot application\n\nName: ${name}\nStudio: ${studio}\nRole: ${role}\nStudio size: ${size}\nEmail: ${email}\nSubmitted at: ${submittedAt}`;
 
   return {
     // EmailJS routing fields.
@@ -249,12 +249,13 @@ export default {
       return json({ ok: true }, 200, corsOrigin);
     }
 
+    const name = clean(body.name, 160);
     const studio = clean(body.studio, 160);
     const role = clean(body.role, 120);
     const size = clean(body.size, 80);
     const email = clean(body.email, 160).toLowerCase();
 
-    if (!studio || !role || !size || !isValidEmail(email)) {
+    if (!name || !studio || !role || !size || !isValidEmail(email)) {
       return json(
         { ok: false, error: 'Please fill all required fields correctly.' },
         400,
@@ -287,7 +288,7 @@ export default {
           size,
           email,
           submittedAt,
-          name: 'Not provided from landing page',
+          name,
           appName: 'Not applicable',
           downloadFile: 'Not applicable',
           downloadLink: 'Not applicable',
